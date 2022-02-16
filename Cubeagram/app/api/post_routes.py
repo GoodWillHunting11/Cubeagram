@@ -1,5 +1,6 @@
 from flask import Blueprint, request, render_template
 from flask_login import login_required
+from app.forms.edit_post_form import EditPostForm
 from app.models import db, Post, User
 from app.forms import PostForm
 from sqlalchemy import desc
@@ -54,4 +55,20 @@ def post_post():
 
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
-# @post_routes.route('/edit', methods=['PUT'])
+@post_routes.route('/<int:postId>/edit', methods=['PUT'])
+def edit_post(postId):
+    data = request.json
+    form = EditPostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        post_to_update = Post.query.get(postId)
+
+        post_to_update.body = data['body']
+        post_to_update.time_updated = datetime.now()
+
+        db.session.commit()
+
+        return post_to_update.to_dict()
+
+    return { "errors": validation_errors_to_error_messages(form.errors)}, 401
