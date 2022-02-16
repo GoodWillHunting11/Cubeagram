@@ -1,7 +1,7 @@
 const LOAD_POSTS = 'posts/LOAD'
 const ADD_POST = 'posts/ADD'
 const EDIT_POST = 'posts/EDIT'
-const DELETE_REVIEW = 'posts/DELETE'
+const DELETE_POST = 'posts/DELETE'
 
 export const loadPosts = payload => {
     return {
@@ -26,7 +26,7 @@ export const editpost = payload => {
 
 export const removePost = payload => {
     return {
-        type: DELETE_REVIEW,
+        type: DELETE_POST,
         payload
     }
 }
@@ -34,9 +34,18 @@ export const removePost = payload => {
 
 
 
-export const deletePost = payload => async dispatch => {
+export const deletePost = id => async dispatch => {
 
-    const response = await fetch(`/api/posts/${payload}`)
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const deleteMessage = await response.json()
+        console.log('delete message',deleteMessage)
+        dispatch(removePost(deleteMessage))
+        return deleteMessage
+    }
 }
 
 export const editPost = (payload) => async dispatch => {
@@ -117,6 +126,10 @@ const postReducer = (state = initialState, action) => {
         case EDIT_POST:
             newState = { ...state }
             return { ...newState}
+        case DELETE_POST:
+            newState = {...state}
+            delete newState[action.payload]
+            return newState
         default:
             return state;
     }
