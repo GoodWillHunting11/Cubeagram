@@ -25,11 +25,17 @@ def get_posts():
     posts = Post.query.order_by(Post.id.desc()).all()
     return { 'posts': [post.to_dict() for post in posts]}
 
+@post_routes.route('/<int:postId>')
+# @login_required
+def get_one_post(postId):
+    post = Post.query.get(postId)
+    print('postttt', post)
+    return post.to_dict()
+
 @post_routes.route('/add', methods=['POST'])
 # @login_required
 def post_post():
     data = request.json
-    print("=====>", data)
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -47,3 +53,5 @@ def post_post():
         return data
 
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
+
+# @post_routes.route('/edit', methods=['PUT'])
