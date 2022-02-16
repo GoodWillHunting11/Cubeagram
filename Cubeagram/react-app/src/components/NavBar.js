@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css"
 
@@ -31,6 +31,9 @@ const NavBar = () => {
           </li>
           <li>
             <LogoutButton />
+          </li>
+          <li>
+            <Link to="/post/new"><button>Post</button> </Link>
           </li>
         </div>
       </ul>

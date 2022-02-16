@@ -50,7 +50,7 @@ def post_comment():
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:commentId>', methods=["PUT"])
-# @login_required
+@login_required
 def edit_comment(commentId):
     data = request.json
     form = EditCommentForm()
@@ -69,7 +69,7 @@ def edit_comment(commentId):
     return { "errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:commentId>', methods=["DELETE"])
-# @login_required
+@login_required
 def delete_comment(commentId):
     comment = Comment.query.get(commentId)
     db.session.delete(comment)
