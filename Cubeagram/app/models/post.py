@@ -7,12 +7,13 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     imageUrl = db.Column(db.String(255), nullable=False)
-    body = db.Column(db.String(255), nullable=False)
+    body = db.Column(db.Text(255))
     time_created = db.Column(db.DateTime(timezone=True), server_default=func.now())
     time_updated = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     user = db.relationship("User", back_populates="post")
     comment = db.relationship("Comment", back_populates='post')
+    
     def to_dict(self):
         return {
             'id': self.id,

@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import TextAreaField, SubmitField
 from wtforms.validators import DataRequired
 
 class CommentForm(FlaskForm):
-    body = StringField('body', validators=[DataRequired("Please provide a comment")])
+    body = TextAreaField('body', validators=[DataRequired("Please provide a comment")])
     submit = SubmitField('submit')
