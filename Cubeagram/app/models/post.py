@@ -12,8 +12,8 @@ class Post(db.Model):
     time_updated = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     user = db.relationship("User", back_populates="post")
-    comment = db.relationship("Comment", back_populates='post')
-    
+    comment = db.relationship("Comment", back_populates='post', cascade='all, delete-orphan')
+
     def to_dict(self):
         return {
             'id': self.id,
