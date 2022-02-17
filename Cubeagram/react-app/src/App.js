@@ -49,7 +49,7 @@ function App() {
         <ProtectedRoute path='/post/new' exact={true} >
           <PostForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/posts/:id' exact={true} >
+        <ProtectedRoute path='/posts/:id/edit' exact={true} >
           <EditPostForm />
         </ProtectedRoute>
       </Switch>

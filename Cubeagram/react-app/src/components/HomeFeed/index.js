@@ -19,7 +19,7 @@ function HomeFeed() {
         e.preventDefault()
         const id = e.target.value
         const data = await dispatch(deletePost(id))
-        if (data.message === "Delete Successful"){
+        if (data.msg === "Successfully deleted"){
             dispatch(getAllPosts())
             history.push('/')
         }
