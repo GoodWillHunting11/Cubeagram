@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import HomeFeed from './components/HomeFeed';
 import { authenticate } from './store/session';
+import PostForm from './components/PostForm';
+import EditPostForm from './components/EditPostForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +45,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <HomeFeed />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/new' exact={true} >
+          <PostForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:id/edit' exact={true} >
+          <EditPostForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
