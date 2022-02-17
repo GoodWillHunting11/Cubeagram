@@ -1,0 +1,39 @@
+.home-main-div {
+    display: flex;
+    widht: 100%;
+}
+
+.home-left-container {
+    /* border: 2px solid red; */
+    width: 25%;
+}
+
+.home-middle-container {
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.home-right-container {
+    /* border: 2px solid green; */
+    width: 30%;
+}
+
+.home-post-div {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+#home-post-img {
+    max-width: 100%;
+    max-height: 500px;
+    min-width: 100%;
+    min-height: 500px;
+}
+
+#profile-pic {
+    max-width: 5%;
+    max-height: 5%
+}
