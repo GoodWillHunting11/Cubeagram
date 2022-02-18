@@ -1,7 +1,96 @@
 .navbar-cube {
     display: flex;
+    border-bottom: 1px solid black;
+    margin-bottom: 1.5%;
+    padding-bottom: 7px;
+}
+
+.navbar-left{
+    min-width: 25%;
+}
+
+.navbar-mid {
+    display: flex;
+    min-width: 39.9%;
+}
+
+.mid-right-nav {
+    display: flex;
+    margin-left: 100%;
+    padding-top: 5%;
+}
+
+.home-button-nav {
+    padding-right: 22px;
+    padding-top: 9px;
+}
+
+.plus-button-nav {
+    padding-right: 22px;
+    padding-top: 9px;
+}
+
+.navbar-right {
+    min-width: 35%;
+}
+
+.navbar-button-group {
+    display: flex;
+    padding-left: 8%;
+    padding-top: 2%;
 }
 
 li {
-    list-style: none;
+    text-decoration: none;
+}
+
+.main-nav {
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+#nav-cube-logo {
+    max-height: 50px;
+    min-height: 50px;
+}
+
+#nav-house {
+    font-size: 21px;
+    color: black;
+}
+
+#nav-plus {
+    font-size: 23px;
+    color: black;
+}
+
+#nav-profile-pic {
+    max-width: 25px;
+    max-height: 25px;
+    border-radius: 50%;
+}
+
+#search-nav {
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(239, 239, 239);
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+.nav-profile-pic {
+    padding-right: 22px;
+    padding-top: 7px;
+}
+
+.logout-button-nav {
+    padding-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
