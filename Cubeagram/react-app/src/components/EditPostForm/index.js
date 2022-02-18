@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
 import { editPost } from "../../store/post";
-
+import './EditPostForm.css'
 
 function EditPostForm() {
     const dispatch = useDispatch()
@@ -16,10 +16,12 @@ function EditPostForm() {
 
     if (currentPost) {
         localStorage.setItem('body', currentPost.body)
+        localStorage.setItem('imageUrl', currentPost.imageUrl)
     }
 
     const [errors, setErrors] = useState([])
     const [body, setBody] = useState(localStorage.getItem('body'))
+    const [image] = useState(localStorage.getItem('imageUrl'))
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -40,17 +42,37 @@ function EditPostForm() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="body">Caption</label>
-                    <textarea
-                        value={body}
-                        onChange={e => setBody(e.target.value)}
-                        autoComplete="off"
-                        placeholder="Caption"
-                    />
-                <button type='submit'>Edit Post</button>
-            </form>
+        <div className="post-form-main">
+            <div className="post-form-left">
+                <div className="preview-post-div">
+                    <div className="post-pic-user">
+                        <img src={user?.imageUrl} id='profile-pic' alt='profile' />
+                        <p id='post-user-top'>{user?.username}</p>
+                    </div>
+                    <img id='home-post-img' src={image} />
+                    <div className="like-comment-div">
+                        <i id='like-heart' class="far fa-heart"></i>
+                        <i id='comment-bubble' class="far fa-comment"></i>
+                    </div>
+                    <div className="caption-author-div">
+                        <p><span id='post-user-caption'>{user?.username}</span> {body.length < 1 ? "Caption" : body}</p>
+                    </div>
+                </div>
+            </div>
+            <div className="mid-line-div"></div>
+            <div className="post-form-right">
+                <form onSubmit={handleSubmit}>
+                    <label id='caption-label-edit' htmlFor="body">Caption</label>
+                        <textarea
+                            id='caption-input-edit'
+                            value={body}
+                            onChange={e => setBody(e.target.value)}
+                            autoComplete="off"
+                            placeholder="Caption"
+                        />
+                    <button id='edit-button' type='submit'>Edit Post</button>
+                </form>
+            </div>
         </div>
     )
 }
