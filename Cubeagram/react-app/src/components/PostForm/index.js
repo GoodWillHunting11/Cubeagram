@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import { newPost } from "../../store/post";
+import "./PostForm.css"
 
 
 function PostForm() {
@@ -32,26 +33,52 @@ function PostForm() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="imageUrl">Image URL</label>
-                    <input
-                        type="text"
-                        value={imageUrl}
-                        onChange={e => setImageUrl(e.target.value)}
-                        placeholder="Image Url"
-                        autoComplete="off"
-                        required
-                    />
-                <label htmlFor="body">Caption</label>
-                    <textarea
-                        value={body}
-                        onChange={e => setBody(e.target.value)}
-                        autoComplete="off"
-                        placeholder="Caption"
-                    />
-                <button type='submit'>Add Post</button>
-            </form>
+        <div className="post-form-main">
+            <div className="post-form-left">
+                <div className="preview-post-div">
+                    <div className="post-pic-user">
+                        <img src={user?.imageUrl} id='profile-pic' alt='profile' />
+                        <p id='post-user-top'>{user?.username}</p>
+                    </div>
+                    <img id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img' />
+                    <div className="like-comment-div">
+                            <i id='like-heart' class="far fa-heart"></i>
+                            <i id='comment-bubble' class="far fa-comment"></i>
+                    </div>
+                    <div className="caption-author-div">
+                            <p><span id='post-user-caption'>{user?.username}</span> {body.length < 1 ? "Caption" : body}</p>
+                    </div>
+                </div>
+            </div>
+            <div className="mid-line-div"></div>
+            <div className="post-form-right">
+                <form onSubmit={handleSubmit}>
+                    <div className="input-post-form">
+                        <label id='image-label' htmlFor="imageUrl">Image</label>
+                            <input
+                                id='image-input'
+                                type="text"
+                                value={imageUrl}
+                                onChange={e => setImageUrl(e.target.value)}
+                                placeholder="Image Url"
+                                autoComplete="off"
+                                required
+                            />
+                        <label id='caption-label' htmlFor="body">Caption</label>
+                            <textarea
+                                id='caption-input'
+                                value={body}
+                                onChange={e => setBody(e.target.value)}
+                                autoComplete="off"
+                                placeholder="Caption"
+                            />
+                        <div className="post-form-buttons">
+                            <button id='submit-post-button' type='submit'>Post</button>
+                            <Link to='/'>Cancel</Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

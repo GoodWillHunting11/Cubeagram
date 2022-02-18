@@ -1,0 +1,14 @@
+#caption-label-edit {
+    padding-bottom: 20px;
+}
+
+#caption-input-edit {
+    width: 120%;
+    min-height: 100px;
+    margin-top: 4%;
+    resize: none;
+}
+
+#edit-button {
+    margin-top:3%;
+}
