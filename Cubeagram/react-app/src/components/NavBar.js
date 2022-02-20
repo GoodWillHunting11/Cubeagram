@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Cubeagram2 from "../img/Cubeagram2.png"
 
 const NavBar = () => {
@@ -10,24 +10,6 @@ const NavBar = () => {
 
   return (
     <nav>
-      {!sessionUser &&
-      <ul className='ul-nav'>
-        <div className='navbar-cube'>
-          <li>
-            <img id="nav-cube-logo" src={Cubeagram2} />
-          </li>
-          <li>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
-          </li>
-        </div>
-      </ul>}
       {sessionUser &&
         <div className='navbar-cube'>
           <div className='navbar-left'></div>

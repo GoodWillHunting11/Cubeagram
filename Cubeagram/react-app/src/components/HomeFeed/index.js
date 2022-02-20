@@ -74,14 +74,14 @@ function HomeFeed() {
                 </div>
                 <div className="home-right-container">
                     <div className="right-pic-username">
-                        <img id='profile-pic' src={user?.imageUrl} />
+                        <img alt="profile" id='profile-pic' src={user?.imageUrl} />
                         <div id='username-right'>
                             <h3>{user?.username}</h3>
                         </div>
                     </div>
                     <div className="right-links-container">
-                        <a id='linkedin-link' href="https://www.linkedin.com/in/aaron-short-780446179/">Linkedin</a>
-                        <a id='github-link' href="https://github.com/GoodWillHunting11/Cubeagram">GitHub</a>
+                        <a target="_blank" id='linkedin-link' href="https://www.linkedin.com/in/aaron-short-780446179/">Linkedin</a>
+                        <a target="_blank" id='github-link' href="https://github.com/GoodWillHunting11/Cubeagram">GitHub</a>
                     </div>
                 </div>
             </div>
