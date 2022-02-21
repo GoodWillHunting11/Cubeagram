@@ -13,13 +13,26 @@
 
 .single-comment-div {
     /* border: 1px solid red; */
-    display: flex;
+    width: 95%;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.single-comment-div > * {
+    margin: 0;
+    display: inline;
 }
 
 .top-right-div {
-    height: 92.6%;
+    height: 665px;
     border-bottom: 1px solid black;
+    overflow-y: scroll;
 }
+
+.top-right-div::-webkit-scrollbar {
+    display: none;
+  }
+
 
 .single-post-div {
     border: 1px solid black;
@@ -27,13 +40,38 @@
     margin-bottom: 5%;
 }
 
+.fix-comments-div {
+    display: flex;
+
+}
+
+.username-body-comment {
+    padding-right: 20px;
+}
+
+.username-body-comment > * {
+    margin: 0;
+    display: inline;
+}
+
 #comment-profile-pic {
-    max-width: 25px;
-    max-height: 25px;
-    min-width: 25px;
-    min-height: 25px;
+    max-width: 35px;
+    max-height: 35px;
+    min-width: 35px;
+    min-height: 35px;
     border-radius: 50%;
-    margin-top: 11px;
+    margin-bottom: 12px;
     margin-right: 10px;
     margin-left: 5px;
+    /* border: 1px solid lightgray */
+}
+
+#comment-count-single {
+    padding-left: 20px;
+}
+
+#comment-username-right {
+    padding-right: 5px;
+    font-weight: 600;
+    font-size: 15px;
 }

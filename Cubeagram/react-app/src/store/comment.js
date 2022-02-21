@@ -1,5 +1,7 @@
 const ADD_COMMENT = 'comments/ADD'
 const LOAD_COMMENTS = 'comments/LOAD'
+const EDIT_COMMENT = 'comments/EDIT'
+const DELETE_COMMENT = 'comments/DELETE'
 
 export const addComment = payload => {
     return {
@@ -12,6 +14,60 @@ export const loadComments = payload => {
     return {
         type: LOAD_COMMENTS,
         payload
+    }
+}
+
+export const editComment = payload => {
+    return {
+        type: EDIT_COMMENT,
+        payload
+    }
+}
+
+export const removeComment = payload => {
+    return {
+        type: DELETE_COMMENT,
+        payload
+    }
+}
+
+export const deleteComment = id => async dispatch => {
+
+    const response = await fetch(`/api/comments/${id}`, {
+        method:'DELETE'
+    })
+
+    if (response.ok) {
+        const deleteMessage = await response.json()
+        console.log('delete message', deleteMessage)
+        dispatch(removeComment(deleteMessage))
+        return deleteMessage
+    }
+}
+
+export const editComments = (payload) => async dispatch => {
+    console.log('payload', payload.body)
+    const response = await fetch(`/api/comments/${payload.commentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({"body": payload.body})
+    })
+    console.log('edit response', response)
+
+    if(response.ok) {
+        const editedComment = await response.json()
+        console.log("edited comment", editedComment)
+        dispatch(editComment(editedComment))
+        return editedComment
+    } else {
+        const data = await response.json()
+        if (data.errors) {
+            return { 'errors': data.errors };
+        } else {
+            return { 'errors': 'Something went wrong. Please try again.'}
+        }
     }
 }
 
@@ -64,13 +120,13 @@ const commentReducer = (state = initialState, action) => {
         case ADD_COMMENT:
             newState = { ...state }
             return { ...newState }
-        // case EDIT_POST:
-        //     newState = { ...state }
-        //     return { ...newState}
-        // case DELETE_POST:
-        //     newState = {...state}
-        //     delete newState[action.payload]
-        //     return newState
+        case EDIT_COMMENT:
+            newState = { ...state }
+            return { ...newState}
+        case DELETE_COMMENT:
+            newState = {...state}
+            delete newState[action.payload]
+            return newState
         default:
             return state;
     }

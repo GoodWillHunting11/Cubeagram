@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
-import { editPost } from "../../store/post";
+import { editPost, getAllPosts } from "../../store/post";
 import './EditPostForm.css'
 
 function EditPostForm() {
@@ -37,8 +37,11 @@ function EditPostForm() {
             setErrors(edit_post?.errors)
         }
         else if (!edit_post?.errors) {
-            history.push(`/`)
+            dispatch(getAllPosts())
+            // history.push(`/`)
         }
+
+        localStorage.clear()
     }
 
     return (

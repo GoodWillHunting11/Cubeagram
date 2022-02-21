@@ -32,8 +32,6 @@ export const removePost = payload => {
 }
 
 
-
-
 export const deletePost = id => async dispatch => {
 
     const response = await fetch(`/api/posts/${id}`, {
