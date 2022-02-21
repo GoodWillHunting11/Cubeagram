@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import Cubeagram2 from "../../img/Cubeagram2.png"
+import "./SignUpForm.css"
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -20,6 +22,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords Don't Match"])
     }
   };
 
@@ -48,60 +52,69 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='main-login-div'>
+      <div className='login-div'>
+        <img id='cube-logo-login' src={Cubeagram2} alt='logo' />
+        <form onSubmit={onSignUp}>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <label id='username-signup' >User Name</label>
+            <input
+              required={true}
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label id='email-signup'>Email</label>
+            <input
+              required={true}
+              type='email'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <label id='profile-pic-signup'>Profile Picture</label>
+            <input
+              required={true}
+              type='text'
+              name='imageUrl'
+              onChange={updateImageUrl}
+              value={imageUrl}
+            ></input>
+          </div>
+          <div>
+            <label id='password-signup'>Password</label>
+            <input
+              required={true}
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <label id='repeat-signup'>Confirm Password</label>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          <button id='login-button-signup' type='submit'>Sign Up</button>
+        </form>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Profile Picture</label>
-        <input
-          type='text'
-          name='imageUrl'
-          onChange={updateImageUrl}
-          value={imageUrl}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </div>
   );
 };
 

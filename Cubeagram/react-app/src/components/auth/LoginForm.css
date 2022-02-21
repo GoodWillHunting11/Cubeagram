@@ -1,0 +1,71 @@
+.main-login-div {
+    display: flex;
+    margin-top: 10%;
+}
+
+.login-div {
+    display: flex;
+    border: 1px rgba(10,10,10, 0.2) solid;
+    margin-left: 40.5%;
+    flex-direction: column;
+    padding: 35px;
+    height: 33%;
+    margin-top: 12%;
+    border-radius: 5px;
+}
+
+.sign-up-account-link {
+    display: flex;
+    padding-left: 38px;
+}
+
+#cube-logo-login {
+    width: 270px;
+    height: 80px;
+    padding-bottom: 60px;
+}
+
+#email-login-label {
+    padding-right: 50px;
+}
+
+#password-login-label {
+    padding-right: 20px;
+}
+
+#login-button-login {
+    margin-top: 35%;
+    width: 100%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 7px;
+}
+
+#password-input-login {
+    margin-top: 15px;
+    border: 1px solid rgba(20,20,20, 0.4);
+    border-radius: 4px;
+    padding-top: 4px;
+}
+
+#email-input-login {
+    border: 1px solid rgba(20,20,20, 0.4);
+    border-radius: 4px;
+    padding-top: 4px;
+}
+
+#dont-have-account {
+    font-size: 13px;
+}
+
+#signup-click {
+    font-size: 13px;
+    padding-top: 12px;
+    padding-left: 5px;
+    color: rgba(0,128,55, 0.9);
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
 import { editPost } from "../../store/post";
@@ -19,7 +19,7 @@ function EditPostForm() {
         localStorage.setItem('imageUrl', currentPost.imageUrl)
     }
 
-    const [errors, setErrors] = useState([])
+    const [setErrors] = useState([])
     const [body, setBody] = useState(localStorage.getItem('body'))
     const [image] = useState(localStorage.getItem('imageUrl'))
 
@@ -49,7 +49,7 @@ function EditPostForm() {
                         <img src={user?.imageUrl} id='profile-pic' alt='profile' />
                         <p id='post-user-top'>{user?.username}</p>
                     </div>
-                    <img id='home-post-img' src={image} />
+                    <img alt="post" id='home-post-img' src={image} />
                     <div className="like-comment-div">
                         <i id='like-heart' class="far fa-heart"></i>
                         <i id='comment-bubble' class="far fa-comment"></i>
