@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { newComment } from "../../store/comment";
+import { getAllComments, newComment } from "../../store/comment";
 import { newPost } from "../../store/post";
+import './CommentForm.css'
 
 function CommentForm () {
 
@@ -28,22 +29,23 @@ function CommentForm () {
             setErrors(new_comment?.errors)
         }
         else if (!new_comment?.errors) {
-            history.push(`/`)
+            dispatch(getAllComments(id))
+            setBody("")
+            history.push(`/post/${id}`)
         }
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="body">Comment</label>
                 <textarea
-                        value={body}
-                        onChange={e => setBody(e.target.value)}
-                        autoComplete="off"
-                        placeholder="Comment"
+                    id='comment-textarea'
+                    value={body}
+                    onChange={e => setBody(e.target.value)}
+                    autoComplete="off"
+                    placeholder="Add a comment..."
                 />
-            <button type="submit">Add Comment</button>
-            <Link to='/'>Cancel</Link>
+            <button id='comment-post-button' type="submit"><i id='send-comment' class="far fa-paper-plane"></i></button>
             </form>
         </div>
     )

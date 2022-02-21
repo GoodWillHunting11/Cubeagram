@@ -1,9 +1,31 @@
 const ADD_COMMENT = 'comments/ADD'
+const LOAD_COMMENTS = 'comments/LOAD'
 
 export const addComment = payload => {
     return {
         type: ADD_COMMENT,
         payload
+    }
+}
+
+export const loadComments = payload => {
+    return {
+        type: LOAD_COMMENTS,
+        payload
+    }
+}
+
+export const getAllComments = (postId) => async dispatch => {
+
+    const response = await fetch (`/api/posts/${postId}/comments`)
+
+    console.log('response', response)
+
+    if (response.ok) {
+        const comments = await response.json()
+
+        dispatch(loadComments(comments))
+        return comments
     }
 }
 
@@ -37,8 +59,8 @@ const initialState = { entries: [] }
 const commentReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
-        // case LOAD_POSTS:
-        //     return { ...state, entries: [...action.payload.posts]}
+        case LOAD_COMMENTS:
+            return { ...state, entries: [...action.payload.comments]}
         case ADD_COMMENT:
             newState = { ...state }
             return { ...newState }

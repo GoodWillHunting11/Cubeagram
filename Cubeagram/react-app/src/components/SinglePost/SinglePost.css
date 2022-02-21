@@ -1,0 +1,39 @@
+.single-post-right-container {
+    /* border: 1px solid red; */
+    width: 18%;
+}
+
+.comments-single-post {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    height: 95%;
+    border-radius: 5px;
+}
+
+.single-comment-div {
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.top-right-div {
+    height: 92.6%;
+    border-bottom: 1px solid black;
+}
+
+.single-post-div {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+#comment-profile-pic {
+    max-width: 25px;
+    max-height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    border-radius: 50%;
+    margin-top: 11px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
