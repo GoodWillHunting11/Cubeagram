@@ -1,0 +1,27 @@
+#comment-textarea {
+    resize: none;
+    width: 85%;
+    border-right: solid black 1px;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+#comment-post-button {
+    position: absolute;
+    padding-bottom: 7px;
+    padding-left: 13px;
+    padding-right: 12px;
+    padding-top: 6px;
+    border: none;
+    background-color: rgba(99,203,133,0.4);
+    border-bottom-right-radius: 5px;
+}
+
+#comment-post-button :hover {
+    cursor: pointer;
+}
+
+#send-comment {
+    font-size: 21px;
+}

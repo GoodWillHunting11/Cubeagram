@@ -55,10 +55,10 @@ function HomeFeed() {
                             <img id='profile-pic' alt="profile" src={postAuthorPic(post?.userId)} />
                             <p id='post-user-top'>{postAuthor(post?.userId)}</p>
                         </div>
-                        <Link><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
+                        <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
                         <div className="like-comment-div">
                             <i id='like-heart' class="far fa-heart"></i>
-                            <Link to={`/post/${post?.id}/comment/new`} ><i id='comment-bubble' class="far fa-comment"></i></Link>
+                            <Link to={`/post/${post?.id}`} ><i id='comment-bubble' class="far fa-comment"></i></Link>
                         </div>
                         <div className="caption-author-div">
                             <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>
@@ -66,6 +66,9 @@ function HomeFeed() {
                         {user?.id === post?.userId &&
                             <Link to={`/posts/${post?.id}/edit`}><button>Edit Post</button></Link>
                         }
+                        <div className="view-all-comments-home">
+                            <Link to={`/post/${post?.id}`}>View All Comments</Link>
+                        </div>
                         {user?.id === post?.userId &&
                             <button value={post?.id} onClick={handlePostDelete}>Delete Post</button>
                         }
