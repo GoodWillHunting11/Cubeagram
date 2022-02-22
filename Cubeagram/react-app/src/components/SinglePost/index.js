@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { deleteComment, getAllComments } from "../../store/comment";
-import { deletePost, getAllPosts } from "../../store/post";
+import { getAllPosts } from "../../store/post";
 import { getAllUsers } from "../../store/user";
 import CommentForm from "../CommentForm";
-import EditCommentForm from "../EditCommentForm";
+import EditCommentModal from "../../context/EditCommentModal";
 import './SinglePost.css'
 
 
 function SinglePost () {
     const dispatch = useDispatch()
-    const history = useHistory()
     const comments = useSelector(state => state.commentReducer.entries)
     const sessionUser = useSelector(state => state.session.user)
     const posts = useSelector(state => state.postReducer.entries)
     const allUsers = useSelector(state => state.userState.entries)
     const { id } = useParams()
     const thisPost = posts.find(post => post.id === +id)
-    console.log('this post', thisPost)
-    // console.log('comments', comments)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     useEffect(() => {
         dispatch(getAllComments(id))
         dispatch(getAllPosts())
         dispatch(getAllUsers())
-    },[dispatch])
+    },[dispatch, id])
 
     const handleCommentDelete = (commentId) => async (e) => {
         e.preventDefault()
 
-        // console.log('commentId', commentId)
         const data = await dispatch(deleteComment(commentId))
-        console.log('data', data)
         if (data && data.msg === "Successfully deleted"){
-            console.log('before dispatch')
             dispatch(getAllComments(thisPost?.id))
-            // history.push(`/post/${id}`)
         }
     }
 
@@ -68,11 +65,7 @@ function SinglePost () {
         }
     }
 
-    const [renderEditForm, setRenderEditForm] = useState(false)
 
-    console.log('pic', postAuthorPic())
-
-    let value;
     return (
         <div>
             <div className="home-main-div">
@@ -110,10 +103,8 @@ function SinglePost () {
                                     </div>
                                     {sessionUser?.id === comment?.userId &&
                                     <div>
-                                        <i onClick={() => setRenderEditForm(true)} class="fas fa-pencil"></i>
+                                        <EditCommentModal comment={comment}/>
                                         <i onClick={handleCommentDelete(comment?.id)} class="far fa-trash-can"></i>
-                                        { renderEditForm &&
-                                        <p onClick={() => setRenderEditForm(false)}>x</p>}
                                     </div>
                                     }
                                 </div>
@@ -125,10 +116,6 @@ function SinglePost () {
                         </div>
                     </div>
                 </div>
-                { renderEditForm &&
-                <div className="edit-comment-form-div">
-                    <EditCommentForm comment={value}/>
-                </div>}
             </div>
         </div>
     )

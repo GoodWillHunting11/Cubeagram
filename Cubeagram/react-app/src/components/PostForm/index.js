@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link} from 'react-router-dom';
 import { newPost } from "../../store/post";
@@ -10,8 +10,12 @@ function PostForm() {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const [imageUrl, setImageUrl] = useState("")
-    const [errors, setErrors] = useState([])
+    const [setErrors] = useState([])
     const [body, setBody] = useState("")
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -40,7 +44,7 @@ function PostForm() {
                         <img src={user?.imageUrl} id='profile-pic' alt='profile' />
                         <p id='post-user-top'>{user?.username}</p>
                     </div>
-                    <img id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img' />
+                    <img alt='profile' id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img' />
                     <div className="like-comment-div">
                             <i id='like-heart' class="far fa-heart"></i>
                             <i id='comment-bubble' class="far fa-comment"></i>

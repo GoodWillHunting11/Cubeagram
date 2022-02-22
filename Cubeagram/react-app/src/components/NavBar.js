@@ -16,7 +16,7 @@ const NavBar = () => {
           <div className='navbar-mid'>
             <div className='main-nav'>
               <div className='mid-left-nav'>
-                <img id="nav-cube-logo" src={Cubeagram2} />
+                <img alt='logo' id="nav-cube-logo" src={Cubeagram2} />
               </div>
               <div className='mid-right-nav'>
                 <input
@@ -38,7 +38,7 @@ const NavBar = () => {
                 <Link to="/post/new"><i id='nav-plus' class="fa-solid fa-square-plus"></i></Link>
               </div>
               <div className='nav-profile-pic'>
-                <img id='nav-profile-pic' src={sessionUser.imageUrl} />
+                <img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} />
               </div>
               <div className='logout-button-nav'>
                 <LogoutButton />

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getAllComments, newComment } from "../../store/comment";
-import { newPost } from "../../store/post";
 import './CommentForm.css'
 
 function CommentForm () {
@@ -11,8 +10,12 @@ function CommentForm () {
     const { id } = useParams()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
-    const [errors, setErrors] = useState([])
+    const [setErrors] = useState([])
     const [body, setBody] = useState("")
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()

@@ -1,0 +1,63 @@
+#modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #modal-content {
+    position: absolute;
+    background-color:white;
+    height: auto;
+    width: auto;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.9);
+  }
+
+  .comment-modal-div {
+      height: 300px;
+      width: 300px;
+      padding-top: 10%;
+  }
+
+  #modal-comment-body {
+      width: 80%;
+      height: 150px;
+      margin-left: 25px;
+      resize: none;
+      margin-top: 20px;
+  }
+
+  #comment-label-edit {
+      padding-left: 33%;
+      margin-top: 10%;
+      margin-bottom: 5%;
+      font-weight: 700;
+  }
+
+  #edit-button-modal {
+    margin-top: 15%;
+    margin-left: 10%;
+    width: 80%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 7px;
+  }

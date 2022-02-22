@@ -11,7 +11,6 @@ import HomeFeed from './components/HomeFeed';
 import { authenticate } from './store/session';
 import PostForm from './components/PostForm';
 import EditPostForm from './components/EditPostForm';
-import CommentForm from './components/CommentForm';
 import SinglePost from './components/SinglePost';
 import EditCommentForm from './components/EditCommentForm'
 
