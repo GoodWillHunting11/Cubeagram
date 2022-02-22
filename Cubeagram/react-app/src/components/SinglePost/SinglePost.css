@@ -1,5 +1,8 @@
+/* *::-webkit-scrollbar {
+    overflow-y: none;
+} */
+
 .single-post-right-container {
-    /* border: 1px solid red; */
     width: 18%;
 }
 
@@ -12,7 +15,6 @@
 }
 
 .single-comment-div {
-    /* border: 1px solid red; */
     width: 95%;
     padding-left: 10px;
     padding-top: 20px;
@@ -54,6 +56,11 @@
     display: inline;
 }
 
+.page-container-single-post {
+    height: 100%;
+    width: 100%;
+}
+
 #comment-profile-pic {
     max-width: 35px;
     max-height: 35px;
@@ -63,7 +70,6 @@
     margin-bottom: 12px;
     margin-right: 10px;
     margin-left: 5px;
-    /* border: 1px solid lightgray */
 }
 
 #comment-count-single {

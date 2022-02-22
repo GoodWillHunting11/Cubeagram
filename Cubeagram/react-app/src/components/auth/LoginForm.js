@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../store/session';
+import * as sessionActions from '../../store/session';
 import './LoginForm.css'
 import Cubeagram2 from "../../img/Cubeagram2.png"
 
@@ -12,9 +13,8 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  function setOnClick() {
-    setPassword('password')
-    setEmail('demo@aa.io')
+  const setOnClick = async (e) => {
+    await dispatch(sessionActions.login('demo@aa.io', 'password'))
   }
 
   const onLogin = async (e) => {

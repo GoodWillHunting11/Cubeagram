@@ -1,0 +1,27 @@
+.page-not-found {
+    margin: 5% 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(20,20,20, 0.8);
+    border-radius: 20px;
+    padding-bottom: 5%;
+}
+
+.main-not-found {
+    height: 100%;
+}
+
+#not-not-found {
+    font-size: 30px;
+}
+
+#error-code {
+    color: rgba(0,128,55, 0.8);
+}
+
+#return-cubeagram {
+    margin-top: 30%;
+    color: rgba(0,128,55, 0.8);
+    font-size: 19px;
+}

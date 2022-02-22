@@ -46,10 +46,10 @@ function HomeFeed() {
         }
     }
 
-    const handlePostDelete = async (e) => {
+    const handlePostDelete = (postId) => async (e) => {
         e.preventDefault()
-        const id = e.target.value
-        const data = await dispatch(deletePost(id))
+
+        const data = await dispatch(deletePost(postId))
         if (data.msg === "Successfully deleted"){
             dispatch(getAllPosts())
             history.push('/')
@@ -68,17 +68,16 @@ function HomeFeed() {
                             <p id='post-user-top'>{postAuthor(post?.userId)}</p>
                             <div className="edit-delete-post-home">
                                 {user?.id === post?.userId &&
-                                    <Link to={`/posts/${post?.id}/edit`}><button>Edit</button></Link>
+                                    <Link to={`/posts/${post?.id}/edit`}><i class="fas fa-pencil"></i></Link>
                                 }
                                 {user?.id === post?.userId &&
-                                    <button value={post?.id} onClick={handlePostDelete}>Delete</button>
+                                    <i onClick={handlePostDelete(post?.id)} className="far fa-trash-can"></i>
                                 }
                             </div>
                         </div>
                         <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
                         <div className="like-comment-div">
-                            <i id='like-heart' class="far fa-heart"></i>
-                            <Link to={`/post/${post?.id}`} ><i id='comment-bubble' class="far fa-comment"></i></Link>
+                            <Link to={`/post/${post?.id}`} ><i id='comment-bubble' className="far fa-comment"></i></Link>
                         </div>
                         <div className="caption-author-div">
                             <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>

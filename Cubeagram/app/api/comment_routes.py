@@ -1,14 +1,9 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request
 from flask_login import login_required
-from app.forms.edit_post_form import EditPostForm
-from app.models import db, Post, User, Comment
-from app.forms import PostForm
-from sqlalchemy import desc
-from sqlalchemy.orm import joinedload
+from app.models import db, Comment
 from app.forms.comment_form import CommentForm
 from app.forms.edit_comment_form import EditCommentForm
 from datetime import datetime
-import json
 
 comment_routes = Blueprint('comments', __name__)
 
