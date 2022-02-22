@@ -9,7 +9,7 @@
     margin-left: 40.5%;
     flex-direction: column;
     padding: 35px;
-    height: 33%;
+    height: 37%;
     margin-top: 12%;
     border-radius: 5px;
 }
@@ -17,6 +17,10 @@
 .sign-up-account-link {
     display: flex;
     padding-left: 38px;
+}
+
+.errors-login {
+    padding-bottom: 10px;
 }
 
 #cube-logo-login {
@@ -34,7 +38,20 @@
 }
 
 #login-button-login {
-    margin-top: 35%;
+    margin-top: 22%;
+    width: 100%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 7px;
+}
+
+#demo-button-login {
+    margin-top: 3%;
     width: 100%;
     border: 1px solid rgba(240,240,240, 0.6);
     background-color: rgba(0,128,55, 0.8);

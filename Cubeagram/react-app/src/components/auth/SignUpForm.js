@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import Cubeagram2 from "../../img/Cubeagram2.png"
 import "./SignUpForm.css"
@@ -64,6 +64,7 @@ const SignUpForm = () => {
           <div>
             <label id='username-signup' >User Name</label>
             <input
+              id='input-signup-page'
               required={true}
               type='text'
               name='username'
@@ -74,6 +75,7 @@ const SignUpForm = () => {
           <div>
             <label id='email-signup'>Email</label>
             <input
+              id='input-signup-page'
               required={true}
               type='email'
               name='email'
@@ -84,6 +86,7 @@ const SignUpForm = () => {
           <div>
             <label id='profile-pic-signup'>Profile Picture</label>
             <input
+              id='input-signup-page'
               required={true}
               type='text'
               name='imageUrl'
@@ -94,6 +97,7 @@ const SignUpForm = () => {
           <div>
             <label id='password-signup'>Password</label>
             <input
+              id='input-signup-page'
               required={true}
               type='password'
               name='password'
@@ -104,6 +108,7 @@ const SignUpForm = () => {
           <div>
             <label id='repeat-signup'>Confirm Password</label>
             <input
+              id='input-signup-page'
               type='password'
               name='repeat_password'
               onChange={updateRepeatPassword}
@@ -112,6 +117,10 @@ const SignUpForm = () => {
             ></input>
           </div>
           <button id='login-button-signup' type='submit'>Sign Up</button>
+          <div className='sign-up-account-link'>
+            <p id='have-account'>Already Have an Account? </p>
+            <Link id='signup-click' to='/login'>Login</Link>
+          </div>
         </form>
       </div>
     </div>

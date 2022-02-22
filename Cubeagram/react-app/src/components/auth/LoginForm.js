@@ -12,6 +12,11 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  function setOnClick() {
+    setPassword('password')
+    setEmail('demo@aa.io')
+  }
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -37,9 +42,9 @@ const LoginForm = () => {
       <div className='login-div'>
         <img id='cube-logo-login' src={Cubeagram2} alt='logo' />
         <form onSubmit={onLogin}>
-          <div>
+          <div className='errors-login'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div id='errors-login' key={ind}>{error}</div>
             ))}
           </div>
           <div>
@@ -67,6 +72,7 @@ const LoginForm = () => {
             />
           </div>
           <button id='login-button-login' type='submit'>Login</button>
+          <button onClick={setOnClick} id='demo-button-login' type='submit'>Demo</button>
           <div className='sign-up-account-link'>
             <p id='dont-have-account'>Don't Have an Account? </p>
             <Link id='signup-click' to='/sign-up'>Sign Up</Link>

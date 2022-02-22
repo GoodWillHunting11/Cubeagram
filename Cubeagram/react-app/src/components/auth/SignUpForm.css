@@ -18,9 +18,22 @@
     padding-right: 56px;
 }
 
+#input-signup-page {
+    margin-bottom: 7px;
+    border: 1px solid rgba(20,20,20, 0.4);
+    border-radius: 4px;
+    padding-top: 4px;
+}
+
+#have-account {
+    font-size: 13px;
+    padding-left: 23px;
+}
+
 #login-button-signup {
-    margin-top: 18%;
-    width: 100%;
+    margin-top: 10%;
+    margin-left: 8%;
+    width: 85%;
     border: 1px solid rgba(240,240,240, 0.6);
     background-color: rgba(0,128,55, 0.8);
     border-radius: 10px;
