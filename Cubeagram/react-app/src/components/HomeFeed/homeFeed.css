@@ -4,19 +4,16 @@
 }
 
 .home-left-container {
-    /* border: 2px solid red; */
     width: 25%;
 }
 
 .home-middle-container {
-    /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
     width: 40%;
 }
 
 .home-right-container {
-    /* border: 2px solid green; */
     width: 30%;
     padding-left: 2.5%;
 }

@@ -47,8 +47,9 @@ function CommentForm () {
                     onChange={e => setBody(e.target.value)}
                     autoComplete="off"
                     placeholder="Add a comment..."
+                    required={true}
                 />
-            <button id='comment-post-button' type="submit"><i id='send-comment' class="far fa-paper-plane"></i></button>
+            <button id='comment-post-button' type="submit"><i id='send-comment' className="far fa-paper-plane"></i></button>
             </form>
         </div>
     )

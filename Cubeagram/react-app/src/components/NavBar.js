@@ -18,24 +18,24 @@ const NavBar = () => {
               <div className='mid-left-nav'>
                 <img alt='logo' id="nav-cube-logo" src={Cubeagram2} />
               </div>
-              <div className='mid-right-nav'>
+              {/* <div className='mid-right-nav'>
                 <input
                   id='search-nav'
                   type="text"
                   placeholder="Search"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='navbar-right'>
             <div className='navbar-button-group'>
               <div className='home-button-nav'>
                 <NavLink to='/' exact={true} activeClassName='active'>
-                  <i id="nav-house" class="fa-solid fa-house"></i>
+                  <i id="nav-house" className="fa-solid fa-house"></i>
                 </NavLink>
               </div>
               <div className='plus-button-nav'>
-                <Link to="/post/new"><i id='nav-plus' class="fa-solid fa-square-plus"></i></Link>
+                <Link to="/post/new"><i id='nav-plus' className="fa-solid fa-square-plus"></i></Link>
               </div>
               <div className='nav-profile-pic'>
                 <img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} />

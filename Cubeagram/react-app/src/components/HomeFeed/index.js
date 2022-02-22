@@ -77,8 +77,7 @@ function HomeFeed() {
                         </div>
                         <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
                         <div className="like-comment-div">
-                            <i id='like-heart' class="far fa-heart"></i>
-                            <Link to={`/post/${post?.id}`} ><i id='comment-bubble' class="far fa-comment"></i></Link>
+                            <Link to={`/post/${post?.id}`} ><i id='comment-bubble' className="far fa-comment"></i></Link>
                         </div>
                         <div className="caption-author-div">
                             <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>

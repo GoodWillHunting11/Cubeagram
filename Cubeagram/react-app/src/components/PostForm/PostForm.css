@@ -22,6 +22,12 @@
     margin-top: 5%;
 }
 
+.view-all-comments-post {
+    padding-left: 1px;
+    font-size: 14px;
+    padding-bottom: 25px;
+}
+
 #post-user-caption {
     font-weight: 700;
     font-size: 14px;

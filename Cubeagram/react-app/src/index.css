@@ -1,6 +1,5 @@
-/* TODO Add site wide styles */
 html, body, #root, #root > div {
-    height: 100vh;
+    /* height: 100vh; */
     width: auto;
     padding: 0;
     margin: 0;

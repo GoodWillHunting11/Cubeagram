@@ -1,12 +1,9 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request
 from flask_login import login_required
 from app.forms.edit_post_form import EditPostForm
 from app.models import db, Post, Comment
 from app.forms import PostForm
-from sqlalchemy import desc
-from sqlalchemy.orm import joinedload
 from datetime import datetime
-import json
 
 post_routes = Blueprint('posts', __name__)
 
@@ -85,7 +82,7 @@ def delete_post(postId):
     return {'msg': 'Successfully deleted'}
 
 @post_routes.route('/<int:postId>/comments')
-# @login_required
+@login_required
 def get_comments(postId):
     comments = Comment.query.filter(Comment.postId == postId).order_by(Comment.id.asc()).all()
     return { 'comments': [comment.to_dict() for comment in comments]}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { deleteComment, getAllComments } from "../../store/comment";
 import { getAllPosts } from "../../store/post";
 import { getAllUsers } from "../../store/user";
@@ -65,9 +65,20 @@ function SinglePost () {
         }
     }
 
+    if(!thisPost){
+        return (
+        <div className="main-not-found">
+            <div className="page-not-found">
+                <h1 id='error-code'>404</h1>
+                <h2 id='not-not-found'>{`Page Not Found :(`}</h2>
+                <Link id='return-cubeagram' to='/'>Return To Cubeagram</Link>
+            </div>
+        </div>
+        )
+    }
 
     return (
-        <div>
+        <div className="page-container-single-post">
             <div className="home-main-div">
                 <div className="home-left-container">
                 </div>
@@ -79,8 +90,8 @@ function SinglePost () {
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
                         <div className="like-comment-div">
-                            <i id='like-heart' class="far fa-heart"></i>
-                            <i id='comment-bubble' class="far fa-comment"></i>
+                            <i id='like-heart' className="far fa-heart"></i>
+                            <i id='comment-bubble' className="far fa-comment"></i>
                         </div>
                         <div className="caption-author-div">
                         <p><span id='post-user'>{postAuthor()}</span> {thisPost?.body}</p>
@@ -89,7 +100,7 @@ function SinglePost () {
                 </div>
                 <div className="single-post-right-container">
                     <div className="comments-single-post">
-                        <h4 id='comment-count-single'>{comments.length} Comments</h4>
+                        <h4 id='comment-count-single'>{comments?.length} Comments</h4>
                         <div className="top-right-div">
                             {comments?.map(comment => (
                             <div className="single-comment-div">
@@ -104,7 +115,7 @@ function SinglePost () {
                                     {sessionUser?.id === comment?.userId &&
                                     <div>
                                         <EditCommentModal comment={comment}/>
-                                        <i onClick={handleCommentDelete(comment?.id)} class="far fa-trash-can"></i>
+                                        <i onClick={handleCommentDelete(comment?.id)} className="far fa-trash-can"></i>
                                     </div>
                                     }
                                 </div>
