@@ -90,7 +90,6 @@ function SinglePost () {
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
                         <div className="like-comment-div">
-                            <i id='like-heart' className="far fa-heart"></i>
                             <i id='comment-bubble' className="far fa-comment"></i>
                         </div>
                         <div className="caption-author-div">
@@ -103,7 +102,7 @@ function SinglePost () {
                         <h4 id='comment-count-single'>{comments?.length} Comments</h4>
                         <div className="top-right-div">
                             {comments?.map(comment => (
-                            <div className="single-comment-div">
+                            <div key={comment?.id} className="single-comment-div">
                                 <div className="fix-comments-div">
                                     <div className="comment-image-div-right">
                                         <img id='comment-profile-pic' alt="profile" src={commentProfilePic(comment?.userId)} />
