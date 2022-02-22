@@ -11,8 +11,8 @@ import HomeFeed from './components/HomeFeed';
 import { authenticate } from './store/session';
 import PostForm from './components/PostForm';
 import EditPostForm from './components/EditPostForm';
-import CommentForm from './components/CommentForm';
 import SinglePost from './components/SinglePost';
+import EditCommentForm from './components/EditCommentForm'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +57,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/post/:id' exact={true}>
           <SinglePost />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/:id/comment/:id/edit' exact={true}>
+          <EditCommentForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from 'react-router-dom';
-import { editPost } from "../../store/post";
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { editPost, getAllPosts } from "../../store/post";
 import './EditPostForm.css'
 
 function EditPostForm() {
@@ -13,6 +13,10 @@ function EditPostForm() {
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.postReducer.entries)
     const currentPost = posts.find(post => post.id === postId)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     if (currentPost) {
         localStorage.setItem('body', currentPost.body)
@@ -37,8 +41,11 @@ function EditPostForm() {
             setErrors(edit_post?.errors)
         }
         else if (!edit_post?.errors) {
+            dispatch(getAllPosts())
             history.push(`/`)
         }
+
+        localStorage.clear()
     }
 
     return (
@@ -71,6 +78,7 @@ function EditPostForm() {
                             placeholder="Caption"
                         />
                     <button id='edit-button' type='submit'>Edit Post</button>
+                    <Link id='cancel-edit-post' to={'/'}>Cancel</Link>
                 </form>
             </div>
         </div>

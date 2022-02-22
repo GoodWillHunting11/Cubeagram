@@ -10,9 +10,22 @@ function HomeFeed() {
     const posts = useSelector(state => state.postReducer.entries)
     const user = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.userState.entries)
+    const comments = useSelector(state => state.commentReducer.entries)
     const history = useHistory()
-    console.log('user state', allUsers)
     const dispatch = useDispatch()
+
+    function getCommentCount(postId) {
+        const commentArr = []
+        for(let i = 0; i < comments.length; i++) {
+            let comment = comments[i]
+            if(comment.postId === postId) commentArr.push(comment)
+        }
+        return commentArr.length;
+    }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     useEffect(() => {
         dispatch(getAllPosts())
@@ -42,7 +55,6 @@ function HomeFeed() {
             history.push('/')
         }
     }
-    // {postAuthor(post.userId)}
     return (
         <div>
             <div className="home-main-div">
@@ -54,6 +66,14 @@ function HomeFeed() {
                         <div className="post-pic-user">
                             <img id='profile-pic' alt="profile" src={postAuthorPic(post?.userId)} />
                             <p id='post-user-top'>{postAuthor(post?.userId)}</p>
+                            <div className="edit-delete-post-home">
+                                {user?.id === post?.userId &&
+                                    <Link to={`/posts/${post?.id}/edit`}><button>Edit</button></Link>
+                                }
+                                {user?.id === post?.userId &&
+                                    <button value={post?.id} onClick={handlePostDelete}>Delete</button>
+                                }
+                            </div>
                         </div>
                         <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
                         <div className="like-comment-div">
@@ -63,15 +83,10 @@ function HomeFeed() {
                         <div className="caption-author-div">
                             <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>
                         </div>
-                        {user?.id === post?.userId &&
-                            <Link to={`/posts/${post?.id}/edit`}><button>Edit Post</button></Link>
-                        }
                         <div className="view-all-comments-home">
-                            <Link to={`/post/${post?.id}`}>View All Comments</Link>
+                            <Link to={`/post/${post?.id}`}>{`View All ${getCommentCount(post?.id)} Comments`}</Link>
                         </div>
-                        {user?.id === post?.userId &&
-                            <button value={post?.id} onClick={handlePostDelete}>Delete Post</button>
-                        }
+
                     </div>
                     ))}
                 </div>
@@ -83,8 +98,8 @@ function HomeFeed() {
                         </div>
                     </div>
                     <div className="right-links-container">
-                        <a target="_blank" id='linkedin-link' href="https://www.linkedin.com/in/aaron-short-780446179/">Linkedin</a>
-                        <a target="_blank" id='github-link' href="https://github.com/GoodWillHunting11/Cubeagram">GitHub</a>
+                        <a rel="noreferrer" target="_blank" id='linkedin-link' href="https://www.linkedin.com/in/aaron-short-780446179/">Linkedin</a>
+                        <a rel="noreferrer" target="_blank" id='github-link' href="https://github.com/GoodWillHunting11/Cubeagram">GitHub</a>
                     </div>
                 </div>
             </div>

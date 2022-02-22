@@ -10,5 +10,23 @@
 }
 
 #edit-button {
-    margin-top:3%;
+    margin-top: 3%;
+    width: 30%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 7px;
+}
+
+#edit-button:hover {
+    border: 1px solid rgba(20,20,20, 0.6);
+}
+
+#cancel-edit-post {
+    padding-left: 10px;
+    font-size: 13px;
 }
