@@ -18,13 +18,6 @@ const NavBar = () => {
               <div className='mid-left-nav'>
                 <img alt='logo' id="nav-cube-logo" src={Cubeagram2} />
               </div>
-              {/* <div className='mid-right-nav'>
-                <input
-                  id='search-nav'
-                  type="text"
-                  placeholder="Search"
-                />
-              </div> */}
             </div>
           </div>
           <div className='navbar-right'>
@@ -38,7 +31,7 @@ const NavBar = () => {
                 <Link to="/post/new"><i id='nav-plus' className="fa-solid fa-square-plus"></i></Link>
               </div>
               <div className='nav-profile-pic'>
-                <img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} />
+                <Link to={`/user/${sessionUser?.id}`} ><img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} /></Link>
               </div>
               <div className='logout-button-nav'>
                 <LogoutButton />

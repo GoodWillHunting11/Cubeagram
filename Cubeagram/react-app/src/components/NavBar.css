@@ -84,6 +84,25 @@ li {
     padding-bottom: 3px;
 }
 
+#logout-button-nav {
+    margin-top: 0;
+    width: 100%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+}
+
+#logout-button-nav:hover {
+    cursor: pointer;
+}
+
 .nav-profile-pic {
     padding-right: 22px;
     padding-top: 7px;
