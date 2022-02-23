@@ -10,7 +10,7 @@ function CommentForm () {
     const { id } = useParams()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
-    const [setErrors] = useState([])
+    const [errors, setErrors] = useState([])
     const [body, setBody] = useState("")
 
     useEffect(() => {

@@ -10,7 +10,7 @@ function PostForm() {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const [imageUrl, setImageUrl] = useState("")
-    const [setErrors] = useState([])
+    const [errors, setErrors] = useState([])
     const [body, setBody] = useState("")
 
     useEffect(() => {
@@ -58,7 +58,10 @@ function PostForm() {
             <div className="post-form-right">
                 <form onSubmit={handleSubmit}>
                     <div className="input-post-form">
-                        <label id='image-label' htmlFor="imageUrl">Image</label>
+                    {errors.map(error => (
+                        <div key={error}>{error}</div>
+                        ))}
+                        <label id='image-label' htmlFor="imageUrl">Image *</label>
                             <input
                                 id='image-input'
                                 type="text"
