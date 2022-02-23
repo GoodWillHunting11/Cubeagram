@@ -37,7 +37,13 @@ function ProfilePage() {
 
     if(!user){
         return (
-            <h1>User Not Found</h1>
+            <div className="main-not-found">
+            <div className="page-not-found">
+                <h1 id='error-code'>404</h1>
+                <h2 id='not-not-found'>{`User Not Found :(`}</h2>
+                <Link id='return-cubeagram' to='/'>Return To Cubeagram</Link>
+            </div>
+        </div>
         )
     }
 
