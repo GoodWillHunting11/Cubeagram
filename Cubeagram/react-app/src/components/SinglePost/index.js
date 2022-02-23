@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { deleteComment, getAllComments } from "../../store/comment";
-import { getAllPosts } from "../../store/post";
+import { getAllPosts, deletePost } from "../../store/post";
 import { getAllUsers } from "../../store/user";
 import CommentForm from "../CommentForm";
 import EditCommentModal from "../../context/EditCommentModal";
@@ -10,6 +10,7 @@ import './SinglePost.css'
 
 
 function SinglePost () {
+    const history = useHistory()
     const dispatch = useDispatch()
     const comments = useSelector(state => state.commentReducer.entries)
     const sessionUser = useSelector(state => state.session.user)
@@ -34,6 +35,16 @@ function SinglePost () {
         const data = await dispatch(deleteComment(commentId))
         if (data && data.msg === "Successfully deleted"){
             dispatch(getAllComments(thisPost?.id))
+        }
+    }
+
+    const handlePostDelete = (postId) => async (e) => {
+        e.preventDefault()
+
+        const data = await dispatch(deletePost(postId))
+        if (data.msg === "Successfully deleted"){
+            dispatch(getAllPosts())
+            history.push('/')
         }
     }
 
@@ -87,6 +98,12 @@ function SinglePost () {
                         <div className="post-pic-user">
                             <img id='profile-pic' alt="profile" src={postAuthorPic(thisPost?.userId)} />
                             <Link id='post-user-top' to={`/user/${thisPost?.userId}`}><p>{postAuthor()}</p></Link>
+                            {sessionUser?.id === thisPost?.userId &&
+                            <div className="edit-delete-single-post-page">
+                                <Link id='edit-pencil-single-post' to={`/posts/${thisPost?.id}/edit`}><i className="fas fa-pencil"></i></Link>
+                                <i onClick={handlePostDelete(thisPost?.id)} className="far fa-trash-can"></i>
+                            </div>
+                            }
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
                         <div className="like-comment-div">
