@@ -48,7 +48,7 @@
 }
 
 .username-body-comment {
-    padding-right: 20px;
+    /* padding-right: 10px; */
 }
 
 .username-body-comment > * {
@@ -80,4 +80,9 @@
     padding-right: 5px;
     font-weight: 600;
     font-size: 15px;
+}
+
+#edit-delete-comment-button-single {
+    text-align: end;
+    width: 100%;
 }

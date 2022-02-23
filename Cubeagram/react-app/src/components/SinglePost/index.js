@@ -86,7 +86,7 @@ function SinglePost () {
                     <div className="single-post-div">
                         <div className="post-pic-user">
                             <img id='profile-pic' alt="profile" src={postAuthorPic(thisPost?.userId)} />
-                            <p id='post-user-top'>{postAuthor()}</p>
+                            <Link id='post-user-top' to={`/user/${thisPost?.userId}`}><p>{postAuthor()}</p></Link>
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
                         <div className="like-comment-div">
@@ -112,7 +112,7 @@ function SinglePost () {
                                         <p>{comment?.body}</p>
                                     </div>
                                     {sessionUser?.id === comment?.userId &&
-                                    <div>
+                                    <div id='edit-delete-comment-button-single'>
                                         <EditCommentModal comment={comment}/>
                                         <i onClick={handleCommentDelete(comment?.id)} className="far fa-trash-can"></i>
                                     </div>

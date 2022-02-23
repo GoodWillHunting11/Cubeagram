@@ -57,18 +57,10 @@ export const editPost = (payload) => async dispatch => {
     })
     console.log('edit response', response)
 
-    if(response.ok) {
+    if (response.ok) {
         const editedPost = await response.json()
-        console.log("edited post", editedPost)
-        dispatch(editPost(editedPost))
+        await dispatch(editpost(editedPost))
         return editedPost
-    } else {
-        const data = await response.json()
-        if (data.errors) {
-            return { 'errors': data.errors };
-        } else {
-            return { 'errors': 'Something went wrong. Please try again.'}
-        }
     }
 }
 

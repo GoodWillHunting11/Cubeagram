@@ -10,18 +10,8 @@ function HomeFeed() {
     const posts = useSelector(state => state.postReducer.entries)
     const user = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.userState.entries)
-    const comments = useSelector(state => state.commentReducer.entries)
     const history = useHistory()
     const dispatch = useDispatch()
-
-    function getCommentCount(postId) {
-        const commentArr = []
-        for(let i = 0; i < comments.length; i++) {
-            let comment = comments[i]
-            if(comment.postId === postId) commentArr.push(comment)
-        }
-        return commentArr.length;
-    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -65,13 +55,13 @@ function HomeFeed() {
                     <div className="home-post-div" key={post?.id}>
                         <div className="post-pic-user">
                             <img id='profile-pic' alt="profile" src={postAuthorPic(post?.userId)} />
-                            <p id='post-user-top'>{postAuthor(post?.userId)}</p>
+                            <Link id='post-user-top' to={`/user/${post?.userId}`}><p>{postAuthor(post?.userId)}</p></Link>
                             <div className="edit-delete-post-home">
                                 {user?.id === post?.userId &&
-                                    <Link to={`/posts/${post?.id}/edit`}><i class="fas fa-pencil"></i></Link>
+                                    <Link to={`/posts/${post?.id}/edit`}><i className="fas fa-pencil"></i></Link>
                                 }
                                 {user?.id === post?.userId &&
-                                    <i onClick={handlePostDelete(post?.id)} className="far fa-trash-can"></i>
+                                    <i id='trash-can-home' onClick={handlePostDelete(post?.id)} className="far fa-trash-can"></i>
                                 }
                             </div>
                         </div>
@@ -83,7 +73,7 @@ function HomeFeed() {
                             <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>
                         </div>
                         <div className="view-all-comments-home">
-                            <Link to={`/post/${post?.id}`}>{`View All ${getCommentCount(post?.id)} Comments`}</Link>
+                            <Link to={`/post/${post?.id}`}>{`View All Comments`}</Link>
                         </div>
 
                     </div>
@@ -93,7 +83,7 @@ function HomeFeed() {
                     <div className="right-pic-username">
                         <img alt="profile" id='profile-pic' src={user?.imageUrl} />
                         <div id='username-right'>
-                            <h3>{user?.username}</h3>
+                        <Link to={`user/${user?.id}`}><h3>{user?.username}</h3></Link>
                         </div>
                     </div>
                     <div className="right-links-container">
