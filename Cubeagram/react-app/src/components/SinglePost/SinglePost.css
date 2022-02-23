@@ -61,6 +61,14 @@
     width: 100%;
 }
 
+.edit-delete-single-post-page {
+    margin-left: 80%;
+}
+
+#edit-pencil-single-post {
+    padding-right: 7px;
+}
+
 #comment-profile-pic {
     max-width: 35px;
     max-height: 35px;
@@ -84,5 +92,5 @@
 
 #edit-delete-comment-button-single {
     text-align: end;
-    width: 100%;
+    width: 13%;
 }

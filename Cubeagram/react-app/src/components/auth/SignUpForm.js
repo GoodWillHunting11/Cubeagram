@@ -19,6 +19,7 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password, imageUrl));
+      // if(!email.includes('https' || 'http')) setErrors(["Enter a Valid Image URL"])
       if (data) {
         setErrors(data)
       }

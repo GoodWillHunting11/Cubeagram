@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../store/session';
 import * as sessionActions from '../../store/session';
+import DemoButton from './DemoButton'
 import './LoginForm.css'
 import Cubeagram2 from "../../img/Cubeagram2.png"
 
@@ -12,10 +13,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
-  const setOnClick = async (e) => {
-    await dispatch(sessionActions.login('demo@aa.io', 'password'))
-  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -72,7 +69,7 @@ const LoginForm = () => {
             />
           </div>
           <button id='login-button-login' type='submit'>Login</button>
-          <button onClick={setOnClick} id='demo-button-login' type='submit'>Demo</button>
+          <DemoButton />
           <div className='sign-up-account-link'>
             <p id='dont-have-account'>Don't Have an Account? </p>
             <Link id='signup-click' to='/sign-up'>Sign Up</Link>
