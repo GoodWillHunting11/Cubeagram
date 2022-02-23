@@ -64,7 +64,7 @@ const SignUpForm = () => {
           <div>
             <label id='username-signup' >User Name</label>
             <input
-              id='input-signup-page'
+              className='input-signup-page'
               required={true}
               type='text'
               name='username'
@@ -75,7 +75,7 @@ const SignUpForm = () => {
           <div>
             <label id='email-signup'>Email</label>
             <input
-              id='input-signup-page'
+              className='input-signup-page'
               required={true}
               type='email'
               name='email'
@@ -86,7 +86,7 @@ const SignUpForm = () => {
           <div>
             <label id='profile-pic-signup'>Profile Picture</label>
             <input
-              id='input-signup-page'
+              className='input-signup-page'
               required={true}
               type='text'
               name='imageUrl'
@@ -97,7 +97,7 @@ const SignUpForm = () => {
           <div>
             <label id='password-signup'>Password</label>
             <input
-              id='input-signup-page'
+              className='input-signup-page'
               required={true}
               type='password'
               name='password'
@@ -108,7 +108,7 @@ const SignUpForm = () => {
           <div>
             <label id='repeat-signup'>Confirm Password</label>
             <input
-              id='input-signup-page'
+              className='input-signup-page'
               type='password'
               name='repeat_password'
               onChange={updateRepeatPassword}
