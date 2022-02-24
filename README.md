@@ -1,7 +1,7 @@
 # Cubeagram
 This is a clone of [Instagram](https://www.instagram.com/)
 
-Cubeagram is a plac for all cubers to get together and share their hobby and sport from 1x1's to 11x11's all cubes are welcome!
+Cubeagram is a place for all cubers to get together and share their hobby and sport from 1x1's to 11x11's. All cubes are welcome!
 
 # Index
 |
