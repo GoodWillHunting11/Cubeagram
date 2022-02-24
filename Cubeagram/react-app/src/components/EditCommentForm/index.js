@@ -5,7 +5,7 @@ import "../../context/Modal.css"
 
 function EditCommentForm({comment, setShowModal}) {
     const dispatch = useDispatch()
-    const [setErrors] = useState([])
+    const [errors, setErrors] = useState([])
     const [body, setBody] = useState(comment?.body)
 
     console.log('body comment', body)
@@ -41,6 +41,9 @@ function EditCommentForm({comment, setShowModal}) {
                         autoComplete="off"
                         placeholder="Comment"
                     />
+                    {errors.map(error => (
+                        <h5 key={error} id='edit-comment-errors'>{error}</h5>
+                    ))}
                 <button id='edit-button-modal' type='submit'>Edit</button>
             </form>
         </div>
