@@ -65,19 +65,19 @@ src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.s
    ```bash
    npm start
    ```
-#Key Features
-##Posts
+# Key Features
+## Posts
 Cubeagram allows users to create a post with an image and a caption talking about their image or experience. When creating a post on Cubeagram Users will
 be able to see a preview of what their post will look like before submitting their post. This feature ensures that the user is satisfied with the aesthetic of their post.
 Users also have the luxury of updating their caption and deleting their entire post if they no longer wish to share that content.
 ![Post Preview](https://user-images.githubusercontent.com/30273596/155431740-e77db608-b4f7-4b20-997d-d87b8217e266.PNG)
 
-##Comments
+## Comments
 Cubeagram allows users to post a comment on any post so they can share their thoughts about another user's post. Users can update their comments in case of a typo or their
 thoughts change about the content. Users can also delete their comment if they no longer wish to share their thoughts on the post.
 ![Comments](https://user-images.githubusercontent.com/30273596/155431935-7301209f-e6ed-4696-9bcc-a0fcd0141483.PNG)
 
-##User Page
+## User Page
 Cubeagram allows users to access their very own user page by clicking their profile image in the nav bar, their username at the top of a post they've made, or their username
 displayed on the right side of the home feed. Their user page shows all the posts they've made and they can access each post by clicking on the image displayed for that post.
 Users can also access other users profile pages by clicking on the user's username at the top of a post that they created. This will also display all the posts they've made and
@@ -85,17 +85,17 @@ can be accessed by clicking on the post's image.
 ![User Page](https://user-images.githubusercontent.com/30273596/155432365-5d157aad-4512-4b4e-9ee7-713255508cf7.PNG)
 
 # Challenges Highlight
-##Modal For Editing a Comment
+## Modal For Editing a Comment
 I originally designed Cubeagram to not use modals but fell in love with the look and interactivity of having a modal to edit a comment. Although it looks simple I had to do
 quite a bit of refactoring to implement this feature.
 ![Edit Comment Modal](https://user-images.githubusercontent.com/30273596/155432984-712dc719-6dfd-47c1-b757-459a6c906ed2.PNG)
 
-##Font Awesome Icons for buttons
+## Font Awesome Icons for buttons
 In place of buttons I used Icons from Font Awesome. As easy as this may sound, using these icons causes certain issues with functions that were implemented in the buttons so a
 bit of refactoring took place to get these to work properly with their onClick functions.
 ![Font Awesome Icons as Buttons](https://user-images.githubusercontent.com/30273596/155433365-85ccdf44-9d31-47ae-bba9-d6710ce14888.PNG)
 
-#Future Implementations
+# Future Implementations
 * Search: allows users to search for other users to view their pages.
 * Likes: users will be able to like and unlike posts.
 * Followers: users will be able to follow and unfollow other users.
