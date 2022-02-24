@@ -30,7 +30,7 @@ src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.s
     ```
 2. Install dependencies
  
-   * cd into Cubeagram
+   * `cd Cubeagram/Cubeagram`
 
 
     ```bash
