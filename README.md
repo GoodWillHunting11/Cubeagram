@@ -29,7 +29,9 @@ src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.s
     git clone https://github.com/GoodWillHunting11/Cubeagram.git
     ```
 2. Install dependencies
+ 
    * cd into Cubeagram
+
 
     ```bash
     pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
