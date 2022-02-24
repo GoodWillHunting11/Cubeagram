@@ -40,6 +40,7 @@ function EditCommentForm({comment, setShowModal}) {
                         onChange={e => setBody(e.target.value)}
                         autoComplete="off"
                         placeholder="Comment"
+                        required={true}
                     />
                     {errors.map(error => (
                         <h5 key={error} id='edit-comment-errors'>{error}</h5>
