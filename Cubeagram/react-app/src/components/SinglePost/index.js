@@ -106,9 +106,6 @@ function SinglePost () {
                             }
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
-                        <div className="like-comment-div">
-                            <i id='comment-bubble' className="far fa-comment"></i>
-                        </div>
                         <div className="caption-author-div">
                         <p><span id='post-user'>{postAuthor()}</span> {thisPost?.body}</p>
                         </div>

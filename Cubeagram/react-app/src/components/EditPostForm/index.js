@@ -84,10 +84,6 @@ function EditPostForm() {
                             <p id='post-user-top'>{user?.username}</p>
                         </div>
                         <img alt="post" id='home-post-img' src={image} />
-                        <div className="like-comment-div">
-                            <i id='like-heart' className="far fa-heart"></i>
-                            <i id='comment-bubble' className="far fa-comment"></i>
-                        </div>
                         <div className="caption-author-div">
                             <p><span id='post-user-caption'>{user?.username}</span> {body.length < 1 ? "Caption" : body}</p>
                             <p className="view-all-comments-post">View All Comments</p>

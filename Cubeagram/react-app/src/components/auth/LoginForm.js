@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../store/session';
-import * as sessionActions from '../../store/session';
 import DemoButton from './DemoButton'
 import './LoginForm.css'
 import Cubeagram2 from "../../img/Cubeagram2.png"

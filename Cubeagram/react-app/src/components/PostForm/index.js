@@ -45,12 +45,8 @@ function PostForm() {
                         <p id='post-user-top'>{user?.username}</p>
                     </div>
                     <img alt='profile' id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img' />
-                    <div className="like-comment-div">
-                            <i id='comment-bubble' className="far fa-comment"></i>
-                    </div>
                     <div className="caption-author-div">
                             <p><span id='post-user-caption'>{user?.username}</span> {body.length < 1 ? "Caption" : body}</p>
-                            <p className='view-all-comments-post'>View All Comments</p>
                     </div>
                 </div>
             </div>

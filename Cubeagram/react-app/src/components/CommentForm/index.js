@@ -30,9 +30,11 @@ function CommentForm () {
 
         if (new_comment?.errors) {
             setErrors(new_comment?.errors)
+            setBody("")
         }
         else if (!new_comment?.errors) {
             dispatch(getAllComments(id))
+            setErrors([])
             setBody("")
             history.push(`/post/${id}`)
         }
@@ -40,6 +42,9 @@ function CommentForm () {
 
     return (
         <div>
+            {errors?.map(error => (
+                <h5 id='error-for-comments' key={error}>{error}</h5>
+            ))}
             <form onSubmit={handleSubmit}>
                 <textarea
                     id='comment-textarea'
