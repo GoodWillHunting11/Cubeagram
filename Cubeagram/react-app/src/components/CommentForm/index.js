@@ -13,6 +13,21 @@ function CommentForm () {
     const [errors, setErrors] = useState([])
     const [body, setBody] = useState("")
 
+    // function breakUpLongStrings (comment) {
+    //     let count = 0
+    //     let newComment = ''
+    //     for(let i = 0; i < comment.length; i++){
+    //         let char = comment[i]
+    //         if(count >= 25) {
+    //             let slicedString = comment.slice(0, char)
+    //             newComment += slicedString + ' '
+    //             count = 0;
+    //         }
+    //         count++
+    //     }
+    //     return newComment;
+    // }
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
@@ -41,11 +56,11 @@ function CommentForm () {
     }
 
     return (
-        <div>
+        <div id='div-givin-the-problems'>
             {errors?.map(error => (
                 <h5 id='error-for-comments' key={error}>{error}</h5>
             ))}
-            <form onSubmit={handleSubmit}>
+            <form id='form-messing-me-up' onSubmit={handleSubmit}>
                 <textarea
                     id='comment-textarea'
                     value={body}
@@ -54,7 +69,7 @@ function CommentForm () {
                     placeholder="Add a comment..."
                     required={true}
                 />
-            <button id='comment-post-button' type="submit"><i id='send-comment' className="far fa-paper-plane"></i></button>
+                <button id='comment-post-button' type="submit">Post</button>
             </form>
         </div>
     )

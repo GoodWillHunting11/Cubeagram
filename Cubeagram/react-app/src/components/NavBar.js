@@ -23,15 +23,15 @@ const NavBar = () => {
           <div className='navbar-right'>
             <div className='navbar-button-group'>
               <div className='home-button-nav'>
-                <NavLink to='/' exact={true} activeClassName='active'>
+                <NavLink  to='/' exact={true} activeClassName='active'>
                   <i id="nav-house" className="fa-solid fa-house"></i>
                 </NavLink>
               </div>
               <div className='plus-button-nav'>
-                <Link to="/post/new"><i id='nav-plus' className="fa-solid fa-square-plus"></i></Link>
+                <NavLink to="/post/new"><i id='nav-plus' className="fa-solid fa-square-plus"></i></NavLink>
               </div>
               <div className='nav-profile-pic'>
-                <Link to={`/user/${sessionUser?.id}`} ><img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} /></Link>
+                <NavLink to={`/user/${sessionUser?.id}`} ><img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} /></NavLink>
               </div>
               <div className='logout-button-nav'>
                 <LogoutButton />

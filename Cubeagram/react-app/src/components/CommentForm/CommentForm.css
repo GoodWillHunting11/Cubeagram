@@ -1,21 +1,44 @@
 #comment-textarea {
     resize: none;
-    width: 85%;
-    border-right: solid black 1px;
-    border-left: none;
+    width: auto;
     border-top: none;
     border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 0px;
+    width: 80%;
+    background-color: transparent;
+    height: 40px;
 }
 
+#comment-textarea:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+
 #comment-post-button {
-    position: absolute;
-    padding-bottom: 7px;
-    padding-left: 13px;
-    padding-right: 12px;
-    padding-top: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    background-color: transparent;
+    color: green;
+    font-size: 17px;
+    font-weight: 700;
+    vertical-align: middle;
+    /* margin-bottom: 20px; */
     border: none;
-    background-color: rgba(99,203,133,0.4);
-    border-bottom-right-radius: 5px;
+}
+
+#form-messing-me-up {
+    /* margin-bottom: 200px; */
+    /* padding-bottom: 100px; */
+    /* height: 100%; */
+    display: flex;
+}
+
+#comment-post-button:hover {
+    cursor: pointer;
 }
 
 #comment-post-button :hover {
@@ -24,6 +47,7 @@
 
 #send-comment {
     font-size: 21px;
+
 }
 
 #error-for-comments {

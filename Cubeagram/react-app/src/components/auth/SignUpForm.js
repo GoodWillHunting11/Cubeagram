@@ -123,6 +123,12 @@ const SignUpForm = () => {
           </div>
         </form>
       </div>
+      <div className='footer-signup-page'>
+        <div className='about-links-footer'>
+          <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/aaron-short-780446179/"><i id='linkedin-footer' class="fa-brands fa-linkedin"></i></a>
+          <a rel="noreferrer" target="_blank" href="https://github.com/GoodWillHunting11/Cubeagram"><i id='github-footer' class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
     </div>
   );
 };

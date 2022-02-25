@@ -1,5 +1,6 @@
 .main-login-div {
     display: flex;
+    flex-direction: column;
     margin-top: 10%;
 }
 
@@ -12,11 +13,12 @@
     height: 37%;
     margin-top: 12%;
     border-radius: 5px;
+    width: 17%;
 }
 
 .sign-up-account-link {
     display: flex;
-    padding-left: 38px;
+    padding-left: 75px;
 }
 
 .errors-login {
@@ -39,7 +41,8 @@
 
 #login-button-login {
     margin-top: 22%;
-    width: 100%;
+    margin-left:14%;
+    width: 75%;
     border: 1px solid rgba(240,240,240, 0.6);
     background-color: rgba(0,128,55, 0.8);
     border-radius: 10px;
@@ -52,7 +55,8 @@
 
 #demo-button-login {
     margin-top: 3%;
-    width: 100%;
+    margin-left:14%;
+    width: 75%;
     border: 1px solid rgba(240,240,240, 0.6);
     background-color: rgba(0,128,55, 0.8);
     border-radius: 10px;
@@ -85,4 +89,35 @@
     padding-top: 12px;
     padding-left: 5px;
     color: rgba(0,128,55, 0.9);
+}
+
+.footer-signup-page {
+    /* border: 1px red solid; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0,128,55, 0.9);
+}
+
+.about-links-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    padding-top: 0.4%;
+}
+
+#linkedin-footer {
+    font-size: 32px;
+    /* padding-right: 580%; */
+    color: white;
+}
+
+#github-footer {
+    font-size: 32px;
+    /* padding-left: 180%; */
+    color: white;
 }

@@ -84,9 +84,9 @@ function EditPostForm() {
                             <p id='post-user-top'>{user?.username}</p>
                         </div>
                         <img alt="post" id='home-post-img' src={image} />
-                        <div className="caption-author-div">
-                            <p><span id='post-user-caption'>{user?.username}</span> {body.length < 1 ? "Caption" : body}</p>
-                            <p className="view-all-comments-post">View All Comments</p>
+                        <div className="caption-author-div-post">
+                            <span id='post-user-caption'>{user?.username}</span>
+                            <p id='overflow-post-caption'>{body.length < 1 ? "Caption" : body}</p>
                         </div>
                     </div>
                 </div>
