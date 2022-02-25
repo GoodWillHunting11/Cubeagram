@@ -101,7 +101,7 @@ function SinglePost () {
                             {sessionUser?.id === thisPost?.userId &&
                             <div className="edit-delete-single-post-page">
                                 <Link id='edit-pencil-single-post' to={`/posts/${thisPost?.id}/edit`}><i className="fas fa-pencil"></i></Link>
-                                <i onClick={handlePostDelete(thisPost?.id)} className="far fa-trash-can"></i>
+                                <i id='trash-can-single-post-stuff' onClick={handlePostDelete(thisPost?.id)} className="far fa-trash-can"></i>
                             </div>
                             }
                         </div>

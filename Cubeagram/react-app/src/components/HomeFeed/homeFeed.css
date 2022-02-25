@@ -75,6 +75,10 @@
     margin-left: 10px;
 }
 
+#trash-can-home:hover {
+    cursor: pointer;
+}
+
 #comment-bubble {
     font-size: 25px;
 }
