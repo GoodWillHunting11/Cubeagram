@@ -35,6 +35,9 @@ const LoginForm = () => {
 
   return (
     <div className='main-login-div'>
+      <div className='about-the-site'>
+        <h1 id='connect-with-cubers'>Connect with other cubers and share your experience</h1>
+      </div>
       <div className='login-div'>
         <img id='cube-logo-login' src={Cubeagram2} alt='logo' />
         <form onSubmit={onLogin}>

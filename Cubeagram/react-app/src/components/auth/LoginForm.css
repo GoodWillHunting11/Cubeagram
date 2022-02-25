@@ -11,7 +11,7 @@
     flex-direction: column;
     padding: 35px;
     height: 37%;
-    margin-top: 12%;
+    margin-top: 5%;
     border-radius: 5px;
     width: 17%;
 }
@@ -37,6 +37,18 @@
 
 #password-login-label {
     padding-right: 20px;
+}
+
+#connect-with-cubers {
+    color: rgba(0,128,55, 0.8);
+    font-size: 35px;
+}
+
+.about-the-site {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 4%;
 }
 
 #login-button-login {
@@ -65,6 +77,16 @@
     font-size: 15px;
     font-weight: 700;
     padding-bottom: 7px;
+}
+
+#demo-button-login:hover {
+    background-color: rgba(0,128,55, 0.9);
+    cursor:pointer;
+}
+
+#login-button-login:hover {
+    background-color: rgba(0,128,55, 0.9);
+    cursor: pointer;
 }
 
 #password-input-login {
