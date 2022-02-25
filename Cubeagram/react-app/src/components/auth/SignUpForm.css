@@ -27,13 +27,13 @@
 
 #have-account {
     font-size: 13px;
-    padding-left: 23px;
+    /* padding-right: 20px; */
 }
 
 #login-button-signup {
     margin-top: 10%;
-    margin-left: 8%;
-    width: 85%;
+    margin-left: 9%;
+    width: 80%;
     border: 1px solid rgba(240,240,240, 0.6);
     background-color: rgba(0,128,55, 0.8);
     border-radius: 10px;

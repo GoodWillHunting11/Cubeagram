@@ -5,7 +5,8 @@
 }
 
 .post-form-left {
-    width: 60.7%
+    width: 60.7%;
+    margin-bottom: 2%;
 }
 
 .mid-line-div {
@@ -20,6 +21,19 @@
     width: 66%;
     margin-left: 20%;
     margin-top: 5%;
+}
+
+.caption-author-div-post > * {
+    margin: 0;
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    max-width: 90%;
+}
+
+#overflow-post-caption {
+    overflow-wrap: break-word;
+    display: inline-block;
 }
 
 .view-all-comments-post {
@@ -49,6 +63,10 @@
     flex-direction: column;
 }
 
+.post-form-buttons {
+    display: flex;
+}
+
 #caption-input {
     width: 182%;
     min-height: 100px;
@@ -68,8 +86,32 @@
     padding-bottom: 7px;
 }
 
+#cancel-button-on-post {
+    padding-top: 15px;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
 #submit-post-button {
     margin-top: 5%;
-    width: 50%;
-    margin-right: 4%;
+    width: 100%;
+    border: 1px solid rgba(240,240,240, 0.6);
+    background-color: rgba(0,128,55, 0.8);
+    border-radius: 10px;
+    color:rgba(240,240,240, 0.9);
+    padding-top: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+}
+
+#submit-post-button:hover {
+    cursor: pointer;
+    background-color: rgba(0,128,55, 0.9);
+}
+
+#cancel-button-on-post:hover {
+    color: rgba(0,128,55, 0.8);
 }

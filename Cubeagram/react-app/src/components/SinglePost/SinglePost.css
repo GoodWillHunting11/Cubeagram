@@ -1,6 +1,4 @@
-/* *::-webkit-scrollbar {
-    overflow-y: none;
-} */
+
 
 .single-post-right-container {
     width: 18%;
@@ -10,8 +8,9 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    height: 94.5%;
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .single-comment-div {
@@ -23,12 +22,14 @@
 .single-comment-div > * {
     margin: 0;
     display: inline;
+
 }
 
 .top-right-div {
-    height: 627px;
+    height: 620px;
     border-bottom: 1px solid black;
     overflow-y: scroll;
+    /* border: red 1px solid; */
 }
 
 .top-right-div::-webkit-scrollbar {
@@ -40,6 +41,8 @@
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 5%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .fix-comments-div {
@@ -49,13 +52,23 @@
 
 .username-body-comment > * {
     margin: 0;
-    display: inline;
+    display: flex;
+    max-width: 250px;
+    padding-top:10px;
 }
 
 .page-container-single-post {
     height: 100%;
     width: 100%;
+
+
 }
+
+#actual-comment {
+    overflow-wrap: break-word;
+    display: inline-block;
+}
+
 
 .edit-delete-single-post-page {
     margin-left: 80%;
@@ -89,4 +102,10 @@
 #edit-delete-comment-button-single {
     text-align: end;
     width: 13%;
+    padding-left: 15%;
+    padding-bottom: 20px;
+}
+
+#a-unique-id {
+    margin-top: 7px;
 }

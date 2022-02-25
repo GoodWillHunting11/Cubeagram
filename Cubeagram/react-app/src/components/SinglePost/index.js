@@ -106,8 +106,9 @@ function SinglePost () {
                             }
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
-                        <div className="caption-author-div">
-                        <p><span id='post-user'>{postAuthor()}</span> {thisPost?.body}</p>
+                        <div className="caption-author-div-post">
+                            <span id='post-user'>{postAuthor()}</span>
+                            <p id='overflow-post-caption'>{thisPost?.body}</p>
                         </div>
                     </div>
                 </div>
@@ -123,19 +124,19 @@ function SinglePost () {
                                     </div>
                                     <div className="username-body-comment">
                                         <h4 id='comment-username-right'>{commentUsername(comment?.userId)}</h4>
-                                        <p>{comment?.body}</p>
+                                        <p id='actual-comment'>{comment?.body}</p>
                                     </div>
+                                </div>
                                     {sessionUser?.id === comment?.userId &&
                                     <div id='edit-delete-comment-button-single'>
                                         <EditCommentModal comment={comment}/>
-                                        <i onClick={handleCommentDelete(comment?.id)} className="far fa-trash-can"></i>
+                                        <i id='a-unique-id' onClick={handleCommentDelete(comment?.id)} className="far fa-trash-can"></i>
                                     </div>
                                     }
-                                </div>
                             </div>
                             ))}
                         </div>
-                        <div className="bottom-right-div">
+                        <div className="bottom-right-div-comment">
                             <CommentForm />
                         </div>
                     </div>

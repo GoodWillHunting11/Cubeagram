@@ -70,7 +70,8 @@ function HomeFeed() {
                             <Link to={`/post/${post?.id}`} ><i id='comment-bubble' className="far fa-comment"></i></Link>
                         </div>
                         <div className="caption-author-div">
-                            <p><span id='post-user'>{postAuthor(post?.userId)}</span> {post?.body}</p>
+                            <span id='post-user'>{postAuthor(post?.userId)}</span>
+                            <p id='caption-on-post-post'> {post?.body}</p>
                         </div>
                         <div className="view-all-comments-home">
                             <Link to={`/post/${post?.id}`}>{`View All Comments`}</Link>

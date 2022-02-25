@@ -31,10 +31,20 @@
 .like-comment-div {
     padding-top: 10px;
     padding-left: 15px;
+    padding-bottom: 10px;
 }
 
-.caption-author-div {
+.caption-author-div > * {
     padding-left: 15px;
+    padding-bottom: 10px;
+    display: flex;
+    margin: 0;
+    max-width: 90%;
+}
+
+#caption-on-post-post {
+    overflow-wrap: break-word;
+    display: inline-block;
 }
 
 .right-links-container {
@@ -58,6 +68,7 @@
     padding-left: 16px;
     font-size: 14px;
     padding-bottom: 40px;
+    padding-top: 10px;
 }
 
 #trash-can-home {

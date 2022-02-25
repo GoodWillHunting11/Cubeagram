@@ -5,6 +5,11 @@
     padding-bottom: 7px;
 }
 
+.active {
+    border-bottom: solid 2px rgba(0,128,55, 0.8);
+    padding-bottom: 3px;
+}
+
 .navbar-left{
     min-width: 25%;
 }
@@ -101,6 +106,7 @@ li {
 
 #logout-button-nav:hover {
     cursor: pointer;
+    background-color: rgba(0,128,55, 0.9);
 }
 
 .nav-profile-pic {
