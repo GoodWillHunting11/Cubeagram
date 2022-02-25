@@ -43,3 +43,8 @@
     font-weight: 700;
     padding-bottom: 7px;
 }
+
+#login-button-signup:hover {
+    background-color: rgba(0,128,55, 0.9);
+    cursor: pointer;
+}
