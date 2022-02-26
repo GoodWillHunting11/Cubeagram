@@ -54,8 +54,6 @@ function HomeFeed() {
                     {posts?.map(post => (
                     <div className="home-post-div" key={post?.id}>
                         <div className="post-pic-user">
-                            <img id='profile-pic' alt="profile" src={postAuthorPic(post?.userId)} />
-                            <Link id='post-user-top' to={`/user/${post?.userId}`}><p>{postAuthor(post?.userId)}</p></Link>
                             <div className="edit-delete-post-home">
                                 {user?.id === post?.userId &&
                                     <Link to={`/posts/${post?.id}/edit`}><i className="fas fa-pencil"></i></Link>
@@ -64,8 +62,14 @@ function HomeFeed() {
                                     <i id='trash-can-home' onClick={handlePostDelete(post?.id)} className="far fa-trash-can"></i>
                                 }
                             </div>
+                            <div className="second-div-for-top">
+                                <img id='profile-pic' alt="profile" src={postAuthorPic(post?.userId)}
+                                onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
+                                <Link id='post-user-top' to={`/user/${post?.userId}`}><p>{postAuthor(post?.userId)}</p></Link>
+                            </div>
                         </div>
-                        <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl} /></Link>
+                        <Link to={`/post/${post?.id}`}><img id="home-post-img" alt="post" src={post?.imageUrl}
+                        onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/></Link>
                         <div className="like-comment-div">
                             <Link to={`/post/${post?.id}`} ><i id='comment-bubble' className="far fa-comment"></i></Link>
                         </div>
@@ -82,7 +86,8 @@ function HomeFeed() {
                 </div>
                 <div className="home-right-container">
                     <div className="right-pic-username">
-                        <img alt="profile" id='profile-pic' src={user?.imageUrl} />
+                        <img alt="profile" id='profile-pic' src={user?.imageUrl}
+                        onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                         <div id='username-right'>
                         <Link to={`user/${user?.id}`}><h3>{user?.username}</h3></Link>
                         </div>

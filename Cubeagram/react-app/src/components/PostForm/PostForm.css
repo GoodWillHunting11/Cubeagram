@@ -11,6 +11,10 @@
     margin-bottom: 2%;
 }
 
+.post-pic-user-post {
+    display: flex;
+}
+
 .mid-line-div {
     border: 1px solid rgba(20,20,20, 0.3);
     height: 85vh;
