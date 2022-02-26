@@ -53,7 +53,7 @@ function ProfilePage() {
             <div className="mid-user-page">
                 <div className="profile-info-div">
                     <div className="profile-pic-user-page">
-                        <img id='user-page-profile-pic' alt="user" src={user?.imageUrl} />
+                        <img id='user-page-profile-pic' alt="user" src={user?.imageUrl} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                     </div>
                     <div className="profile-name-email">
                         <h2>{user?.username}</h2>
@@ -66,7 +66,7 @@ function ProfilePage() {
                 <div className="user-posts-div">
                     {userPosts?.map( post => (
                     <div key={post?.id} className="each-user-post">
-                        <Link to={`/post/${post?.id}`}><img id='each-post-image' alt="each post" src={post?.imageUrl} /></Link>
+                        <Link to={`/post/${post?.id}`}><img id='each-post-image' alt="each post" src={post?.imageUrl} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/></Link>
                     </div>))}
                 </div>
             </div>

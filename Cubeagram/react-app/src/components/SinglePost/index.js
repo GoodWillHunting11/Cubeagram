@@ -96,16 +96,18 @@ function SinglePost () {
                 <div className="home-middle-container">
                     <div className="single-post-div">
                         <div className="post-pic-user">
-                            <img id='profile-pic' alt="profile" src={postAuthorPic(thisPost?.userId)} />
-                            <Link id='post-user-top' to={`/user/${thisPost?.userId}`}><p>{postAuthor()}</p></Link>
                             {sessionUser?.id === thisPost?.userId &&
                             <div className="edit-delete-single-post-page">
                                 <Link id='edit-pencil-single-post' to={`/posts/${thisPost?.id}/edit`}><i className="fas fa-pencil"></i></Link>
                                 <i id='trash-can-single-post-stuff' onClick={handlePostDelete(thisPost?.id)} className="far fa-trash-can"></i>
                             </div>
                             }
+                            <div className="second-div-for-top">
+                                <img id='profile-pic' alt="profile" src={postAuthorPic(thisPost?.userId)} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
+                                <Link id='post-user-top' to={`/user/${thisPost?.userId}`}><p>{postAuthor()}</p></Link>
+                            </div>
                         </div>
-                        <img id='home-post-img' alt='post' src={thisPost?.imageUrl} />
+                        <img id='home-post-img' alt='post' src={thisPost?.imageUrl} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                         <div className="caption-author-div-post">
                             <span id='post-user'>{postAuthor()}</span>
                             <p id='overflow-post-caption'>{thisPost?.body}</p>
@@ -120,7 +122,7 @@ function SinglePost () {
                             <div key={comment?.id} className="single-comment-div">
                                 <div className="fix-comments-div">
                                     <div className="comment-image-div-right">
-                                        <img id='comment-profile-pic' alt="profile" src={commentProfilePic(comment?.userId)} />
+                                        <img id='comment-profile-pic' alt="profile" src={commentProfilePic(comment?.userId)} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                                     </div>
                                     <div className="username-body-comment">
                                         <h4 id='comment-username-right'>{commentUsername(comment?.userId)}</h4>

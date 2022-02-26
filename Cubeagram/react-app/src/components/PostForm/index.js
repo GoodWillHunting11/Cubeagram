@@ -40,11 +40,13 @@ function PostForm() {
         <div className="post-form-main">
             <div className="post-form-left">
                 <div className="preview-post-div">
-                    <div className="post-pic-user">
-                        <img src={user?.imageUrl} id='profile-pic' alt='profile' />
+                    <div className="post-pic-user-post">
+                        <img src={user?.imageUrl} id='profile-pic' alt='profile'
+                         onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                         <p id='post-user-top'>{user?.username}</p>
                     </div>
-                    <img alt='profile' id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img' />
+                    <img alt='profile' id='home-post-img' src={imageUrl?.length < 1 ? "https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png": imageUrl} className='home-post-img'
+                    onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }} />
                     <div className="caption-author-div-post">
                             <span id='post-user-caption'>{user?.username}</span>
                             <p id='overflow-post-caption'>{body.length < 1 ? "Caption" : body}</p>

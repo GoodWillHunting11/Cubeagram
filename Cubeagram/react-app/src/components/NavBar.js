@@ -31,7 +31,7 @@ const NavBar = () => {
                 <NavLink to="/post/new"><i id='nav-plus' className="fa-solid fa-square-plus"></i></NavLink>
               </div>
               <div className='nav-profile-pic'>
-                <NavLink to={`/user/${sessionUser?.id}`} ><img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} /></NavLink>
+                <NavLink to={`/user/${sessionUser?.id}`} ><img alt='profile' id='nav-profile-pic' src={sessionUser.imageUrl} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/></NavLink>
               </div>
               <div className='logout-button-nav'>
                 <LogoutButton />

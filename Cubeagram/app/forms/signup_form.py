@@ -21,8 +21,8 @@ def username_exists(form, field):
 
 def username_length(form, field):
     username = field.data
-    if len(username) > 40:
-        raise ValidationError('Must be 40 characters or less')
+    if len(username) > 30:
+        raise ValidationError('Must be 30 characters or less')
 
 def validate_image(form, field):
     web = field.data
