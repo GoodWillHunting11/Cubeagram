@@ -27,7 +27,6 @@ def get_posts():
 @login_required
 def get_one_post(postId):
     post = Post.query.get(postId)
-    print('postttt', post)
     return post.to_dict()
 
 @post_routes.route('/', methods=['POST'])
@@ -56,7 +55,6 @@ def post_post():
 @login_required
 def edit_post(postId):
     data = request.json
-    print('data', data)
     form = EditPostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
