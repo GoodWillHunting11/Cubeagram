@@ -39,14 +39,12 @@ export const deleteComment = id => async dispatch => {
 
     if (response.ok) {
         const deleteMessage = await response.json()
-        console.log('delete message', deleteMessage)
         dispatch(removeComment(deleteMessage))
         return deleteMessage
     }
 }
 
 export const editComments = (payload) => async dispatch => {
-    console.log('payload', payload.body)
     const response = await fetch(`/api/comments/${payload.commentId}`, {
         method: 'PUT',
         headers: {
@@ -54,11 +52,9 @@ export const editComments = (payload) => async dispatch => {
         },
         body:JSON.stringify({"body": payload.body})
     })
-    console.log('edit response', response)
 
     if(response.ok) {
         const editedComment = await response.json()
-        console.log("edited comment", editedComment)
         dispatch(editComment(editedComment))
         return editedComment
     } else {
@@ -75,7 +71,6 @@ export const getAllComments = (postId) => async dispatch => {
 
     const response = await fetch (`/api/posts/${postId}/comments`)
 
-    console.log('response', response)
 
     if (response.ok) {
         const comments = await response.json()

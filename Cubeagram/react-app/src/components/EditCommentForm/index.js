@@ -8,7 +8,6 @@ function EditCommentForm({comment, setShowModal}) {
     const [errors, setErrors] = useState([])
     const [body, setBody] = useState(comment?.body)
 
-    console.log('body comment', body)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -17,7 +16,6 @@ function EditCommentForm({comment, setShowModal}) {
             body,
             commentId: comment?.id
         }
-        console.log('payload', payload)
         const edit_comment = await dispatch(editComments(payload))
 
         if (edit_comment?.errors) {

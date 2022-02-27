@@ -40,14 +40,12 @@ export const deletePost = id => async dispatch => {
 
     if (response.ok) {
         const deleteMessage = await response.json()
-        console.log('delete message',deleteMessage)
         dispatch(removePost(deleteMessage))
         return deleteMessage
     }
 }
 
 export const editPost = (payload) => async dispatch => {
-    console.log('payload', payload.body)
     const response = await fetch(`/api/posts/${payload.postId}`, {
         method: 'PUT',
         headers: {
@@ -55,7 +53,6 @@ export const editPost = (payload) => async dispatch => {
         },
         body:JSON.stringify({"body": payload.body})
     })
-    console.log('edit response', response)
 
     if (response.ok) {
         const editedPost = await response.json()
@@ -92,7 +89,6 @@ export const newPost = (payload) => async dispatch => {
 export const getAllPosts = () => async dispatch => {
 
     const response = await fetch (`/api/posts/`)
-    console.log('response', response)
 
     if (response.ok) {
         const posts = await response.json()

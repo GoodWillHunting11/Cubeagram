@@ -24,7 +24,6 @@ function ProfilePage() {
     }
 
     const userPosts = findUserPosts()
-    console.log('user posts', userPosts)
 
     useEffect(() => {
         window.scrollTo(0, 0);
