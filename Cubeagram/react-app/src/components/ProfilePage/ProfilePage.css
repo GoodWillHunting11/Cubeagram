@@ -56,3 +56,8 @@
     max-height: 280px;
     min-height: 280px;
 }
+
+#displayed-email-user {
+    word-wrap: break-word;
+    max-width: 600px;
+}

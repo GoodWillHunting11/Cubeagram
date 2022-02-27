@@ -57,7 +57,7 @@ function ProfilePage() {
                     <div className="profile-name-email">
                         <h2>{user?.username}</h2>
                         <h5>{`${userPosts?.length} posts`}</h5>
-                        <h4>{user?.email}</h4>
+                        <h4 id='displayed-email-user'>{user?.email}</h4>
                     </div>
 
                 </div>
