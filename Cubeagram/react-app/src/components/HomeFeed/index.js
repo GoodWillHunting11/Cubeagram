@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
 import { deletePost, getAllPosts } from "../../store/post";
 import { getAllUsers } from "../../store/user";
+import { getAllLike, postLike, removeLike } from "../../store/like"
+import { LikePost } from '../LikesPost';
 import "./homeFeed.css"
 
 
@@ -10,6 +12,7 @@ function HomeFeed() {
     const posts = useSelector(state => state.postReducer.entries)
     const user = useSelector(state => state.session.user)
     const allUsers = useSelector(state => state.userState.entries)
+    const likes = useSelector(state => state?.likeReducer?.list)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -20,6 +23,7 @@ function HomeFeed() {
     useEffect(() => {
         dispatch(getAllPosts())
         dispatch(getAllUsers())
+        dispatch(getAllLike())
     },[dispatch])
 
     function postAuthor(postUserId) {
@@ -72,6 +76,10 @@ function HomeFeed() {
                         onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/></Link>
                         <div className="like-comment-div">
                             <Link to={`/post/${post?.id}`} ><i id='comment-bubble' className="far fa-comment"></i></Link>
+                            <LikePost postId={post?.id} post={post}/>
+                            {likes &&
+                            <p className='like-pg-count'> {likes.filter(like => like?.post_id === post?.id).length} likes</p>
+                            }
                         </div>
                         <div className="caption-author-div">
                             <span id='post-user'>{postAuthor(post?.userId)}</span>

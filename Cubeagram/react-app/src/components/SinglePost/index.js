@@ -7,6 +7,7 @@ import { getAllUsers } from "../../store/user";
 import CommentForm from "../CommentForm";
 import EditCommentModal from "../../context/EditCommentModal";
 import './SinglePost.css'
+import { LikePost } from "../LikesPost";
 
 
 function SinglePost () {
@@ -16,6 +17,7 @@ function SinglePost () {
     const sessionUser = useSelector(state => state.session.user)
     const posts = useSelector(state => state.postReducer.entries)
     const allUsers = useSelector(state => state.userState.entries)
+    const likes = useSelector(state => state?.likeReducer?.list)
     const { id } = useParams()
     const thisPost = posts.find(post => post.id === +id)
 
@@ -109,6 +111,9 @@ function SinglePost () {
                         </div>
                         <img id='home-post-img' alt='post' src={thisPost?.imageUrl} onError={(e) => { e.target.src = 'https://www.gaithersburgdental.com/wp-content/uploads/2016/10/orionthemes-placeholder-image.png'; e.target.onError = null; }}/>
                         <div className="caption-author-div-post">
+                                <LikePost postId={thisPost?.id} post={thisPost} />
+                                {likes &&
+                                <p className='like-pg-count'> {likes.filter(like => like?.post_id === thisPost?.id).length} likes</p>}
                             <span id='post-user'>{postAuthor()}</span>
                             <p id='overflow-post-caption'>{thisPost?.body}</p>
                         </div>

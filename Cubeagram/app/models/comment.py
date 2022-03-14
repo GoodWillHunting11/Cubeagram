@@ -13,6 +13,7 @@ class Comment(db.Model):
 
     user = db.relationship("User", back_populates="comment")
     post = db.relationship("Post", back_populates="comment")
+    like = db.relationship("Like", back_populates="comment", cascade="all,delete-orphan")
 
     def to_dict(self):
         return {

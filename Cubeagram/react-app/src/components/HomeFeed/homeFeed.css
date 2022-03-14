@@ -54,6 +54,30 @@
     width: 25%;
 }
 
+i.fa-heart {
+    font-size: 24px;
+    padding: 0;
+    font-weight: 400;
+    color: rgb(38,38,38);
+}
+
+.fa.fa-heart.unlike {
+    color: #ED4956 !important;
+}
+
+.fa.fa-heart {
+    cursor: pointer;
+}
+
+.like-btn {
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+}
+
 .post-pic-user {
     display: flex;
     flex-direction: column;
