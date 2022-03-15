@@ -9,6 +9,7 @@ function ProfilePage() {
     const dispatch = useDispatch()
     const users = useSelector(state => state.userState.entries)
     const { id } = useParams()
+    console.log('use params', useParams())
     const user = users.find(user => user.id === +id)
     const posts = useSelector(state => state.postReducer.entries)
 

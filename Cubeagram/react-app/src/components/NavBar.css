@@ -45,6 +45,23 @@
     padding-top: 2%;
 }
 
+.searchBar-Nav {
+    display: flex;
+    padding-left: 50%;
+    height: 100%;
+    align-content: flex-end;
+}
+
+#search-bar-nav {
+    height: 40%;
+    margin-top: 10%;
+}
+
+#submit-search-nav {
+    height: 50%;
+    margin-top: 10%;
+}
+
 li {
     text-decoration: none;
 }

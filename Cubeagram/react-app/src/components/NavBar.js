@@ -1,12 +1,22 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css"
 import { useSelector } from "react-redux";
 import Cubeagram2 from "../img/Cubeagram2.png"
+import { useState } from 'react';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
+  const history = useHistory()
+  const [search, setSearch] = useState('')
+
+  function handleSubmit(){
+    if(search.length > 0){
+      history.push(`/search/${search}`)
+      setSearch('')
+    }
+  }
 
   return (
     <nav>
@@ -17,6 +27,17 @@ const NavBar = () => {
             <div className='main-nav'>
               <div className='mid-left-nav'>
                 <img alt='logo' id="nav-cube-logo" src={Cubeagram2} />
+              </div>
+              <div className='searchBar-Nav'>
+                <input
+                  id='search-bar-nav'
+                  type='text'
+                  onChange={e => setSearch(e.target.value)}
+                  value={search}
+                  required
+                  autoComplete='off'
+                  />
+                <button onClick={handleSubmit} id='submit-search-nav' type='submit'><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </div>
           </div>

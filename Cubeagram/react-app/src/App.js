@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import HomeFeed from './components/HomeFeed';
 import { authenticate } from './store/session';
 import PostForm from './components/PostForm';
+import SearchResults from './components/SearchResults';
 import EditPostForm from './components/EditPostForm';
 import SinglePost from './components/SinglePost';
 import PageNotFound from './components/PageNotFound';
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/user/:id' exact={true}>
           <ProfilePage />
+        </ProtectedRoute >
+        <ProtectedRoute path='/search/:id' exact={true}>
+          <SearchResults />
         </ProtectedRoute>
         <ProtectedRoute>
           <PageNotFound />
