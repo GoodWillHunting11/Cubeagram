@@ -54,7 +54,6 @@ function CommentForm () {
             history.push(`/post/${id}`)
         }
     }
-
     return (
         <div id='div-givin-the-problems'>
             {errors?.map(error => (
